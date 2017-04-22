@@ -1,0 +1,60 @@
+/**
+ * Styles for the WP Admin plugin options page
+ *
+ * This file contains CSS.
+ *
+ * @link       http://www.panoramica.co.nz
+ * @since      0.3.0
+ *
+ * @package    WpDTRT_SoundCloud_Pages
+ * @subpackage WpDTRT_SoundCloud_Pages/admin/css
+ */
+
+.wpdtrt-soundcloud-pages-blocks {
+  counter-reset: blocks;
+}
+
+.wpdtrt-soundcloud-pages-blocks::after {
+  content: "";
+  display: table;
+  width: 100%;
+  clear: both;
+}
+
+.wpdtrt-soundcloud-pages-blocks ul,
+.wpdtrt-soundcloud-pages-blocks li {
+  float: left;
+}
+
+.wpdtrt-soundcloud-pages-blocks li {
+  position: relative;
+  margin: 0 8px 8px 0;
+  height: 150px;
+  width: 150px;
+}
+
+.wpdtrt-soundcloud-pages-blocks li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background-color: #000;
+  counter-increment: blocks;
+  content: counter(blocks);
+  padding: 8px;
+}
+
+.wpdtrt-soundcloud-pages-blocks li img {
+  width: 150px;
+  height: 150px;
+}
+
+.wpdtrt-soundcloud-pages-date {
+  font-size: .95em;
+}
+
+.widget .wpdtrt-soundcloud-pages-tip {
+  display: block;
+  padding-top: 4px;
+}
+

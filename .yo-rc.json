@@ -1,0 +1,24 @@
+{
+  "generator-wp-plugin-boilerplate": {
+    "nameFriendly": "WP SoundCloud Pages",
+    "nameAdminMenu": "SoundCloud Pages",
+    "urlAdminMenu": "soundcloud-pages",
+    "description": "Generate WordPress pages from SoundCloud pages",
+    "tags": "SoundCloud, music, theming, import",
+    "homepage": "http://www.panoramica.co.nz",
+    "license": "GPLv2 or later",
+    "licenseUrl": "http://www.gnu.org/licenses/gpl-2.0.html",
+    "donateUrl": "http://dotherightthing.co.nz/donate",
+    "wpVersion": "4.7.3",
+    "authorName": "Dan Smith",
+    "authorWordPressName": "dotherightthingnz",
+    "authorEmail": "dev@dotherightthing.co.nz",
+    "authorUrl": "http://dotherightthing.co.nz",
+    "repositoryType": "git",
+    "repositoryUrl": "git@github.com:dotherightthing/wpdtrt-soundcloud-pages.git",
+    "name": "wpdtrt-soundcloud-pages",
+    "nameSafe": "wpdtrt_soundcloud_pages",
+    "nameFriendlySafe": "WpDTRT_SoundCloud_Pages",
+    "version": "0.3.0"
+  }
+}
