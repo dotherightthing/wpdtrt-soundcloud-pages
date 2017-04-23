@@ -82,6 +82,7 @@ if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_URL' ) ) {
   // Views
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-options-page.php');
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-widget.php');
+  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-post-types.php');
 
   // Theming
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-html.php');
