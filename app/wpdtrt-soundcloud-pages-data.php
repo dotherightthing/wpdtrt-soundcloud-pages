@@ -13,17 +13,35 @@
 
 /**
  * wpdtrt_soundcloud_pages_data_get
- * @param string $wpdtrt_soundcloud_pages_datatype Required. The type of data to return.
+ * @param string $wpdtrt_soundcloud_pages_username Required. The username.
+ * @param string $wpdtrt_soundcloud_pages_clientid Required. The Client ID.
  * @return object $wpdtrt_soundcloud_pages_data. The body of the JSON.
  */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_data_get' ) ) {
 
-  function wpdtrt_soundcloud_pages_data_get( $wpdtrt_soundcloud_pages_datatype ) {
-    $json_feed_url = 'http://jsonplaceholder.typicode.com/' . $wpdtrt_soundcloud_pages_datatype;
+  function wpdtrt_soundcloud_pages_data_get( $wpdtrt_soundcloud_pages_username, $wpdtrt_soundcloud_pages_clientid ) {
+
+    $resolve_url = 'http://api.soundcloud.com/resolve?url=http://soundcloud.com/' . $wpdtrt_soundcloud_pages_username . '&client_id=' . $wpdtrt_soundcloud_pages_clientid;
 
     $args = array(
-      'timeout' => 30 // seconds to wait for the request to complete
+      'timeout' => 60 // seconds to wait for the request to complete
     );
+
+    /**
+     * wp_remote_get( string $url, array $args = array() )
+     * Retrieve the raw response from the HTTP request using the GET method.
+     * @link https://developer.wordpress.org/reference/functions/wp_remote_get/
+     */
+    $wpdtrt_soundcloud_pages_username_resolved = wp_remote_get(
+      $resolve_url,
+      $args
+    );
+
+    $wpdtrt_soundcloud_pages_username_resolved_data = json_decode( $wpdtrt_soundcloud_pages_username_resolved['body'] );
+
+    $wpdtrt_soundcloud_pages_userid = $wpdtrt_soundcloud_pages_username_resolved_data->{'id'};
+
+    $json_feed_url = 'https://api.soundcloud.com/users/' . $wpdtrt_soundcloud_pages_userid . '/tracks?client_id=' . $wpdtrt_soundcloud_pages_clientid;
 
     /**
      * wp_remote_get( string $url, array $args = array() )
@@ -75,9 +93,10 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_data_refresh' ) ) {
 
     if ( $update_difference > $one_hour ) {
 
-      $wpdtrt_soundcloud_pages_datatype = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_datatype'];
+      $wpdtrt_soundcloud_pages_username = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_username'];
+      $wpdtrt_soundcloud_pages_clientid = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_clientid'];
 
-      $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'] = wpdtrt_soundcloud_pages_data_get( $wpdtrt_soundcloud_pages_datatype );
+      $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'] = wpdtrt_soundcloud_pages_data_get( $wpdtrt_soundcloud_pages_username, $wpdtrt_soundcloud_pages_clientid );
 
       // inspecting the database will allow us to check
       // whether the profile is being updated

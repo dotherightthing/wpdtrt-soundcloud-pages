@@ -32,17 +32,17 @@
           /**
            * Start Scenario 1 - data selection form
            * If the user has not chosen a content type yet.
-           * then $wpdtrt_soundcloud_pages_datatype will be set to the default of ""
+           * then $wpdtrt_soundcloud_pages_username will be set to the default of ""
            * The user must make a selection so that we know which page to query,
            * so we show the selection box first.
            */
-          if ( !isset( $wpdtrt_soundcloud_pages_datatype ) || ( $wpdtrt_soundcloud_pages_datatype === '') ) :
+          if ( !isset( $wpdtrt_soundcloud_pages_username ) || ( $wpdtrt_soundcloud_pages_username === '') ) :
           ?>
 
           <div class="postbox">
 
             <h2>
-              <span><?php esc_attr_e( 'What kind of blocks would you like?', 'wp_admin_style' ); ?></span>
+              <span><?php esc_attr_e( 'Your SoundCloud Account', 'wp_admin_style' ); ?></span>
             </h2>
 
             <div class="inside">
@@ -54,14 +54,24 @@
                 <table class="form-table">
                   <tr>
                     <th>
-                      <label for="wpdtrt_soundcloud_pages_datatype">Please select a block type:</label>
+                      <label for="wpdtrt_soundcloud_pages_username">
+                        Please enter your SoundCloud username:
+                         <span class="tip">(https://soundcloud.com/username)</span>
+                      </label>
                     </th>
                     <td>
-                      <select name="wpdtrt_soundcloud_pages_datatype" id="wpdtrt_soundcloud_pages_datatype">
-                        <option value="">None</option>
-                        <option value="photos">Coloured Blocks</option>
-                        <option value="users">Map Blocks</option>
-                      </select>
+                      <input type="text" name="wpdtrt_soundcloud_pages_username" id="wpdtrt_soundcloud_pages_username" value="">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for="wpdtrt_soundcloud_pages_clientid">
+                        Please enter your SoundCloud Client ID:
+                         <span class="tip">(http://soundcloud.com/you/apps/new)</span>
+                      </label>
+                    </th>
+                    <td>
+                      <input type="password" name="wpdtrt_soundcloud_pages_clientid" id="wpdtrt_soundcloud_pages_clientid" value="">
                     </td>
                   </tr>
                 </table>
@@ -71,7 +81,7 @@
                  * submit_button( string $text = null, string $type = 'primary', string $name = 'submit', bool $wrap = true, array|string $other_attributes = null )
                  */
                   submit_button(
-                    $text = 'Go!',
+                    $text = 'Submit',
                     $type = 'primary',
                     $name = 'wpdtrt_soundcloud_pages_submit',
                     $wrap = true,
@@ -115,9 +125,9 @@
 
             <div class="inside">
 
-              <p>This data set contains <?php echo count( $wpdtrt_soundcloud_pages_data ); ?> blocks.</p>
+              <p>Your SoundCloud account contains <?php echo count( $wpdtrt_soundcloud_pages_data ); ?> track pages.</p>
 
-              <p>The first 6 are displayed below:</p>
+              <p>The first 6 are listed below:</p>
 
               <div class="wpdtrt-soundcloud-pages-blocks">
                 <ul>
@@ -128,7 +138,7 @@
                   $display_count = 1;
 
                   foreach( $wpdtrt_soundcloud_pages_data as $key => $val ) {
-                    echo "<li>" . wpdtrt_soundcloud_pages_html_image( $key ) . "</li>\r\n";
+                    //echo "<li>" . wpdtrt_soundcloud_pages_html_image( $key ) . "</li>\r\n";
 
                     $count++;
                     $display_count++;
@@ -176,24 +186,24 @@
 
             <div class="inside">
 
-              <p>The data used to generate the blocks above.</p>
+              <p>The data used to generate the list above.</p>
 
               <div class="wpdtrt-soundcloud-pages-data"><pre><code><?php echo "{\r\n";
 
-                  $count = 0;
-                  $max_length = 6;
+                  //$count = 0;
+                  //$max_length = 6;
 
-                  foreach( $wpdtrt_soundcloud_pages_data as $key => $val ) {
-                    var_dump( $wpdtrt_soundcloud_pages_data[$key] );
+                  //foreach( $wpdtrt_soundcloud_pages_data as $key => $val ) {
+                    var_dump( $wpdtrt_soundcloud_pages_data );
 
-                    $count++;
+                    //$count++;
 
                     // when we reach the end of the demo sample, stop looping
-                    if ($count === $max_length) {
-                      break;
-                    }
+                    //if ($count === $max_length) {
+                    //  break;
+                   // }
 
-                  }
+                  //}
 
                   echo "}\r\n"; ?></code></pre></div>
 
@@ -237,7 +247,7 @@
            * But this time we'll give it secondary importance
            * by displaying it in a sidebar:
            */
-            if ( isset( $wpdtrt_soundcloud_pages_datatype ) && ( $wpdtrt_soundcloud_pages_datatype !== '') ) :
+            if ( isset( $wpdtrt_soundcloud_pages_username ) && ( $wpdtrt_soundcloud_pages_username !== '') ) :
           ?>
 
           <div class="postbox">
@@ -248,33 +258,25 @@
 
             <div class="inside">
 
-              <p>Sample data not what you were expecting?</p>
-              <p>Change your selection here:</p>
-
               <form name="wpdtrt_soundcloud_pages_data_form" method="post" action="">
 
                 <input type="hidden" name="wpdtrt_soundcloud_pages_form_submitted" value="Y" />
 
                 <p>
-                  <label for="wpdtrt_soundcloud_pages_datatype">Please select a block type:</label>
+                  <label for="wpdtrt_soundcloud_pages_username">New user ID:</label>
                 </p>
                 <p>
-                  <?php
-                  /**
-                   * selected
-                   * Compares two given values (for example, a saved option vs. one chosen in a form) and,
-                   * if the values are the same, adds the selected attribute to the current option tag.
-                   * @link https://codex.wordpress.org/Function_Reference/selected
-                   */
-                  ?>
-                  <select name="wpdtrt_soundcloud_pages_datatype" id="wpdtrt_soundcloud_pages_datatype">
-                    <option value="">None</option>
-                    <option value="photos" <?php selected( $wpdtrt_soundcloud_pages_datatype, "photos" ); ?>>Coloured blocks</option>
-                    <option value="users" <?php selected( $wpdtrt_soundcloud_pages_datatype, "users" ); ?>>Maps</option>
-                  </select>
+                  <input type="text" name="wpdtrt_soundcloud_pages_username" id="wpdtrt_soundcloud_pages_username" value="<?php echo $wpdtrt_soundcloud_pages_username; ?>">
                 </p>
                 <p>
 
+                <p>
+                  <label for="wpdtrt_soundcloud_pages_clientid">New SoundCloud Client ID:</label>
+                </p>
+                <p>
+                  <input type="password" name="wpdtrt_soundcloud_pages_clientid" id="wpdtrt_soundcloud_pages_clientid" value="<?php echo $wpdtrt_soundcloud_pages_clientid; ?>">
+                </p>
+                <p>
                   <?php
                     submit_button(
                       $text = 'Save &amp; load new data',
