@@ -1,12 +1,15 @@
 <?php
 /*
-Plugin Name: WP SoundCloud Pages
-Plugin URI: http://www.panoramica.co.nz
-Description: Generate WordPress pages from SoundCloud pages
-Author: Dan Smith
-Version: 0.3.0
-Author URI: http://dotherightthing.co.nz
-License: GPLv2 or later
+Plugin Name:  WP SoundCloud Pages
+Plugin URI:   http://www.panoramica.co.nz
+Description:  Generate WordPress pages from SoundCloud pages
+Version:      0.3.0
+Author:       Dan Smith
+Author URI:   http://dotherightthing.co.nz
+License:      GPLv2 or later
+License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  wpdtrt-soundcloud-pages
+Domain Path:  /languages
 */
 
 /**
@@ -26,8 +29,8 @@ License: GPLv2 or later
  * plugin_dir_path()
  * plugin_basename()
  *
- * @link https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Constants
- * @link https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Plugins
+ * @see https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Constants
+ * @see https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Plugins
  */
 
 /**
@@ -83,6 +86,7 @@ if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_URL' ) ) {
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-options-page.php');
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-widget.php');
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-post-types.php');
+  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-taxonomies.php');
 
   // Theming
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-html.php');

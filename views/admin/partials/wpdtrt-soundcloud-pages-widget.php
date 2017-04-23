@@ -32,7 +32,7 @@
  * Compares two given values (for example, a saved option vs. one chosen in a form)
  * and, if the values are the same, adds the checked attribute to the current radio button or checkbox.
  * @example <?php checked( $checked, $current, $echo ); ?>
- * @link https://codex.wordpress.org/Function_Reference/checked
+ * @see https://codex.wordpress.org/Function_Reference/checked
  */
 ?>
 <p>

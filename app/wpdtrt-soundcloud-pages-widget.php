@@ -15,8 +15,8 @@
  * WP_Widget class
  * This class must be extended for each widget, and WP_Widget::widget() must be overridden.
  * Class names should use capitalized words separated by underscores. Any acronyms should be all upper case.
- * @link https://developer.wordpress.org/reference/classes/wp_widget/
- * @link https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions
+ * @see https://developer.wordpress.org/reference/classes/wp_widget/
+ * @see https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions
  */
 if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
 
@@ -30,9 +30,11 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
     /**
      * WP_Widget::widget
      * Echoes the widget content to the front-end
-     * @param $args (array) (Required) Display arguments including 'before_title', 'after_title', 'before_widget', and 'after_widget'.
-     * @param $instance (array) (Required) The settings for the particular instance of the widget.
-     * @link https://developer.wordpress.org/reference/classes/wp_widget/widget/
+     * @param array $args
+     *    Display arguments including 'before_title', 'after_title', 'before_widget', and 'after_widget'.
+     * @param array $instance
+     *    The settings for the particular instance of the widget.
+     * @see https://developer.wordpress.org/reference/classes/wp_widget/widget/
      */
     function widget( $args, $instance ) {
 
@@ -41,7 +43,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
        * 1. predeclare the variables
        * 2. only overwrite the predeclared variables
        * Removing this causes the widget title to lose its HTML formatting
-       * @link http://kb.network.dan/php/wordpress/extract/
+       * @see http://kb.network.dan/php/wordpress/extract/
        */
       $before_widget = $before_title = $title = $after_title = $after_widget = null;
       extract($args, EXTR_IF_EXISTS);
@@ -60,7 +62,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
 
       /**
        * Get the unique ID
-       * @link https://kylebenk.com/how-to-wordpress-widget-id/
+       * @see https://kylebenk.com/how-to-wordpress-widget-id/
        */
       // $instance_id = $this->id;
 
@@ -77,7 +79,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
      * by replacing the old instance with data from the new instance
      * @param array $new_instance
      * @param array $old_instance
-     * @link https://developer.wordpress.org/reference/classes/wp_widget/update/
+     * @see https://developer.wordpress.org/reference/classes/wp_widget/update/
      */
     function update( $new_instance, $old_instance ) {
       // Save user input (widget options)
@@ -87,7 +89,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
       /**
        * strip_tags — Strip HTML and PHP tags from a string
        * @example string strip_tags ( string $str [, string $allowable_tags ] )
-       * @link http://php.net/manual/en/function.strip-tags.php
+       * @see http://php.net/manual/en/function.strip-tags.php
        */
       $instance['title'] = strip_tags( $new_instance['title'] );
       $instance['number'] = strip_tags( $new_instance['number'] );
@@ -106,7 +108,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
       /**
         * Escape HTML attributes to sanitize the data.
         * @example esc_attr( string $text )
-        * @link https://developer.wordpress.org/reference/functions/esc_attr/
+        * @see https://developer.wordpress.org/reference/functions/esc_attr/
         */
       $title = esc_attr( $instance['title'] );
       $number = esc_attr( $instance['number'] );
@@ -129,7 +131,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_register_widgets' ) ) {
 
   /**
    * register the widget
-   * @link https://codex.wordpress.org/Function_Reference/register_widget#Example
+   * @see https://codex.wordpress.org/Function_Reference/register_widget#Example
    */
   add_action( 'widgets_init', 'wpdtrt_soundcloud_pages_register_widgets' );
 

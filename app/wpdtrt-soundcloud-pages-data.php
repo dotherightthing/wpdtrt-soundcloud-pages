@@ -13,9 +13,12 @@
 
 /**
  * wpdtrt_soundcloud_pages_data_get
- * @param string $wpdtrt_soundcloud_pages_username Required. The username.
- * @param string $wpdtrt_soundcloud_pages_clientid Required. The Client ID.
- * @return object $wpdtrt_soundcloud_pages_data. The body of the JSON.
+ * @param string $wpdtrt_soundcloud_pages_username
+ *    The username
+ * @param string $wpdtrt_soundcloud_pages_clientid
+ *    The Client ID
+ * @return object $wpdtrt_soundcloud_pages_data
+ *    The body of the JSON
  */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_data_get' ) ) {
 
@@ -30,7 +33,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_data_get' ) ) {
     /**
      * wp_remote_get( string $url, array $args = array() )
      * Retrieve the raw response from the HTTP request using the GET method.
-     * @link https://developer.wordpress.org/reference/functions/wp_remote_get/
+     * @see https://developer.wordpress.org/reference/functions/wp_remote_get/
      */
     $wpdtrt_soundcloud_pages_username_resolved = wp_remote_get(
       $resolve_url,
@@ -46,7 +49,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_data_get' ) ) {
     /**
      * wp_remote_get( string $url, array $args = array() )
      * Retrieve the raw response from the HTTP request using the GET method.
-     * @link https://developer.wordpress.org/reference/functions/wp_remote_get/
+     * @see https://developer.wordpress.org/reference/functions/wp_remote_get/
      */
     $json_feed = wp_remote_get(
       $json_feed_url,
@@ -78,7 +81,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_data_refresh' ) ) {
    * matches the latter half of the action 'wp_ajax_wpdtrt_soundcloud_pages_data_refresh' in our AJAX handler.
    * This is because it is used to call the server side PHP function through admin-ajax.php.
    * If an action is not specified, admin-ajax.php will exit, and return 0 in the process.
-   * @link https://codex.wordpress.org/AJAX_in_Plugins
+   * @see https://codex.wordpress.org/AJAX_in_Plugins
    */
   add_action('wp_ajax_wpdtrt_soundcloud_pages_data_refresh', 'wpdtrt_soundcloud_pages_data_refresh');
 
@@ -111,7 +114,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_data_refresh' ) ) {
      * wp_die() vs die() vs exit()
      * Most of the time you should be using wp_die() in your Ajax callback function.
      * This provides better integration with WordPress and makes it easier to test your code.
-     * @link https://codex.wordpress.org/AJAX_in_Plugins
+     * @see https://codex.wordpress.org/AJAX_in_Plugins
      */
     wp_die();
 

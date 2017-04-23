@@ -15,8 +15,10 @@
 /**
  * wpdtrt_soundcloud_pages_html_image
  * Generate the HTML for a block image
- * @param string $key Required. The key of the corresponding JSON object.
- * @param boolean $has_enlargement Optional.
+ * @param string $key
+ *    The key of the corresponding JSON object
+ * @param boolean $has_enlargement (optional)
+ *    Whether the image should link to an enlargement
  * @return string. An HTML image element, optionally wrapped in a hyperlink.
  */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_html_image' ) ) {
@@ -98,7 +100,8 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_html_image' ) ) {
 /**
  * wpdtrt_soundcloud_pages_html_latlng
  * Get a block's map coordinates
- * @param string $key Required. The key of the JSON object.
+ * @param string $key
+ *    The key of the JSON object.
  * @return string. "lat,lng" | ""
  */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_html_latlng' ) ) {
@@ -138,8 +141,10 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_html_latlng' ) ) {
 /**
  * wpdtrt_soundcloud_pages_html_title
  * Get a block's title
- * @param string $key Required. The key of the JSON object.
- * @param boolean $has_enlargement Optional.
+ * @param string $key
+ *    The key of the JSON object.
+ * @param boolean $has_enlargement (optional)
+ *    Whether the image should link to an enlargement
  * @return string. "The title"
  */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_html_title' ) ) {
@@ -179,7 +184,8 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_html_title' ) ) {
 /**
  * wpdtrt_soundcloud_pages_html_date
  * Get the data set's last modified date.
- * @param boolean $has_enlargement Optional.
+ * @param boolean $has_enlargement (optional)
+ *    Whether the image should link to an enlargement
  * @return string. <p class="wpdtrt_soundcloud_pages_date">Last updated 23rd April 2017</p>
  */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_html_date' ) ) {

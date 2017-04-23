@@ -16,7 +16,7 @@
  * wpdtrt_soundcloud_pages_menu()
  * Display a link to the options page in the admin menu
  * add_options_page( $page_title, $menu_title, $capability, $menu_slug, $function )
- * @link https://developer.wordpress.org/reference/functions/add_options_page/
+ * @see https://developer.wordpress.org/reference/functions/add_options_page/
  */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_menu' ) ) {
 
@@ -103,7 +103,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_options_page' ) ) {
          * Unless you need to specify the optional arguments of add_option(),
          * update_option() is a useful catch-all for both adding and updating options.
          * @example update_option( string $option, mixed $value, string|bool $autoload = null )
-         * @link https://codex.wordpress.org/Function_Reference/update_option
+         * @see https://codex.wordpress.org/Function_Reference/update_option
          */
         update_option( 'wpdtrt_soundcloud_pages', $wpdtrt_soundcloud_pages_options, null );
       }

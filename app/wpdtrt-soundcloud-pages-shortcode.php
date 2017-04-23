@@ -17,9 +17,11 @@
 
 /**
  * add_shortcode
- * @param string $tag Required. Shortcode tag to be searched in post content.
- * @param callable $func Required. Hook to run when shortcode is found.
- * @link https://codex.wordpress.org/Function_Reference/add_shortcode
+ * @param string $tag
+ *    Shortcode tag to be searched in post content.
+ * @param callable $func
+ *    Hook to run when shortcode is found.
+ * @see https://codex.wordpress.org/Function_Reference/add_shortcode
  */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_blocks_shortcode' ) ) {
 
@@ -59,7 +61,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_blocks_shortcode' ) ) {
      * This stores the HTML template in the buffer
      * so that it can be output into the content
      * rather than at the top of the page.
-     * @link http://php.net/manual/en/function.ob-start.php
+     * @see http://php.net/manual/en/function.ob-start.php
      */
     ob_start();
 
@@ -67,7 +69,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_blocks_shortcode' ) ) {
 
     /**
      * ob_get_clean — Get current buffer contents and delete current output buffer
-     * @link http://php.net/manual/en/function.ob-get-clean.php
+     * @see http://php.net/manual/en/function.ob-get-clean.php
      */
     $content = ob_get_clean();
 

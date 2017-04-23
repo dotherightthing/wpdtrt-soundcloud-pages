@@ -5,7 +5,7 @@
  * This file contains PHP.
  *
  * @link       http://www.panoramica.co.nz
- * @link       https://codex.wordpress.org/AJAX_in_Plugins
+ * @see       https://codex.wordpress.org/AJAX_in_Plugins
  * @since      0.3.0
  *
  * @package    WpDTRT_SoundCloud_Pages
@@ -36,8 +36,8 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_frontend_js' ) ) {
      * @param string $handle
      * @param string $name
      * @param array $data
-     * @link https://codex.wordpress.org/AJAX_in_Plugins
-     * @link https://codex.wordpress.org/Function_Reference/wp_localize_script
+     * @see https://codex.wordpress.org/AJAX_in_Plugins
+     * @see https://codex.wordpress.org/Function_Reference/wp_localize_script
      */
     wp_localize_script( 'wpdtrt_soundcloud_pages_frontend_js',
       'wpdtrt_soundcloud_pages_config',

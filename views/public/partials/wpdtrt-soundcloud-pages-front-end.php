@@ -34,7 +34,7 @@
 
    /**
      * filter_var
-     * @link http://stackoverflow.com/a/15075609
+     * @see http://stackoverflow.com/a/15075609
      */
     $has_enlargement = filter_var( $enlargement, FILTER_VALIDATE_BOOLEAN );
 
