@@ -12,7 +12,7 @@
  * @example    do_shortcode( '[wpdtrt_soundcloud_pages_blocks num_blocks="4" tooltip="on"]' );
  *
  * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/includes
+ * @subpackage WpDTRT_SoundCloud_Pages/app
  */
 
 /**

@@ -14,7 +14,7 @@
 
 /**
  * Create taxonomy for Interviews
- * Interviews are tracks that are musical, but aren't part of a mix
+ * Interviews are tracks that are musical, but aren't part of a mix.
  *
  * @since       0.4.0
  * @uses        ../../../../wp-includes/taxonomy.php

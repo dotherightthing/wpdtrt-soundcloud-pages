@@ -8,7 +8,7 @@
  * @since      0.3.0
  *
  * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/public/partials
+ * @subpackage WpDTRT_SoundCloud_Pages/views
  */
 ?>
 

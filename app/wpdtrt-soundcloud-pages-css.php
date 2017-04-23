@@ -8,7 +8,7 @@
  * @since      0.3.0
  *
  * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/includes
+ * @subpackage WpDTRT_SoundCloud_Pages/app
  */
 
 /**
