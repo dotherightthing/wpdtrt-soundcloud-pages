@@ -104,6 +104,9 @@ if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_URL' ) ) {
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-css.php');
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-js.php');
 
+  // Content
+  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-posts.php');
+
   // Shortcode
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-shortcode.php');
 

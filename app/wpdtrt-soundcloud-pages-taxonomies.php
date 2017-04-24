@@ -195,3 +195,4 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_taxonomy_create_single' ) ) {
     add_action( 'init', 'wpdtrt_soundcloud_pages_taxonomy_create_single', 0 );
 }
 
+?>
