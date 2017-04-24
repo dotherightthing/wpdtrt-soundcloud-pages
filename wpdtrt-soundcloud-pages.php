@@ -13,6 +13,17 @@ Domain Path:  /languages
 */
 
 /**
+ * Generate WordPress pages from SoundCloud pages
+ *
+ * This file contains PHP.
+ *
+ * @link        http://www.panoramica.co.nz
+ * @since       0.1.0
+ *
+ * @package     WpDTRT_SoundCloud_Pages
+ */
+
+/**
  * Constants
  * WordPress makes use of the following constants when determining the path to the content and plugin directories.
  * These should not be used directly by plugins or themes, but are listed here for completeness.
