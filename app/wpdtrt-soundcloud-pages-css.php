@@ -4,21 +4,20 @@
  *
  * This file contains PHP.
  *
- * @link       http://www.panoramica.co.nz
- * @since      0.3.0
+ * @link        http://www.panoramica.co.nz
+ * @since       0.1.0
  *
- * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/app
- */
-
-/**
- * Specify and attach CSS for Settings > Boilerplate
+ * @package     WpDTRT_SoundCloud_Pages
+ * @subpackage  WpDTRT_SoundCloud_Pages/app
  */
 
 if ( !function_exists( 'wpdtrt_soundcloud_pages_css_backend' ) ) {
 
-  add_action( 'admin_head', 'wpdtrt_soundcloud_pages_css_backend' );
-
+  /**
+   * Attach CSS for Settings > SoundCloud Pages
+   *
+   * @since       0.1.0
+   */
   function wpdtrt_soundcloud_pages_css_backend() {
 
     wp_enqueue_style( 'wpdtrt_soundcloud_pages_css_backend',
@@ -29,15 +28,17 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_css_backend' ) ) {
     );
   }
 
+  add_action( 'admin_head', 'wpdtrt_soundcloud_pages_css_backend' );
+
 }
 
-/**
- * Specify and attach CSS for the front-end widget
- */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_css_frontend' ) ) {
 
-  add_action( 'wp_enqueue_scripts', 'wpdtrt_soundcloud_pages_css_frontend' );
-
+  /**
+   * Attach CSS for front-end widgets and shortcodes
+   *
+   * @since      0.1.0
+   */
   function wpdtrt_soundcloud_pages_css_frontend() {
 
     wp_enqueue_style( 'wpdtrt_soundcloud_pages_css_frontend',
@@ -48,6 +49,9 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_css_frontend' ) ) {
     );
 
   }
+
+  add_action( 'wp_enqueue_scripts', 'wpdtrt_soundcloud_pages_css_frontend' );
+
 }
 
 ?>

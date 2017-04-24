@@ -2,13 +2,13 @@
  * Scripts for the public front-end
  *
  * This file contains JavaScript.
- * PHP variables are provided in wpdtrt_soundcloud_pages_config.
+ *    PHP variables are provided in wpdtrt_soundcloud_pages_config.
  *
- * @link       http://www.panoramica.co.nz
- * @since      0.3.0
+ * @link        http://www.panoramica.co.nz
+ * @since       0.1.0
  *
- * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/views
+ * @package     WpDTRT_SoundCloud_Pages
+ * @subpackage  WpDTRT_SoundCloud_Pages/views
  */
 
 jQuery(document).ready(function($){

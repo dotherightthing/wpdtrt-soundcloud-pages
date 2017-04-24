@@ -1,16 +1,15 @@
 <?php
 /**
- * Template partial for Admin Widget
- * WP Admin > Appearance > Widgets > WP SoundCloud Pages
+ * Template partial for Widget administration
+ *    WP Admin > Appearance > Widgets > WP SoundCloud Pages
  *
  * This file contains PHP, and HTML fields.
  *
- * @link       http://www.panoramica.co.nz
- * @link       /wp-admin/admin.php?page=WordPress_Admin_Style#twocolumnlayout2
- * @since      0.3.0
+ * @link        http://www.panoramica.co.nz
+ * @since       0.1.0
  *
- * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/views
+ * @package     WpDTRT_SoundCloud_Pages
+ * @subpackage  WpDTRT_SoundCloud_Pages/views
  */
 ?>
 

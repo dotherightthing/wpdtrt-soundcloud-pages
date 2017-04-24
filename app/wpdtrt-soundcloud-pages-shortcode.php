@@ -4,29 +4,32 @@
  *
  * This file contains PHP.
  *
- * @link       http://www.panoramica.co.nz
- * @link       https://generatewp.com/shortcodes/
- * @since      0.3.0
+ * @link        http://www.panoramica.co.nz
+ * @link        https://generatewp.com/shortcodes/
+ * @since       0.1.0
  *
- * @example    [wpdtrt_soundcloud_pages_blocks num_blocks="4" tooltip="on"]
- * @example    do_shortcode( '[wpdtrt_soundcloud_pages_blocks num_blocks="4" tooltip="on"]' );
+ * @example     [wpdtrt_soundcloud_pages_blocks number="4" enlargement="yes"]
+ * @example     do_shortcode( '[wpdtrt_soundcloud_pages_blocks number="4" enlargement="yes"]' );
  *
- * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/app
+ * @package     WpDTRT_SoundCloud_Pages
+ * @subpackage  WpDTRT_SoundCloud_Pages/app
  */
 
-/**
- * add_shortcode
- * @param string $tag
- *    Shortcode tag to be searched in post content.
- * @param callable $func
- *    Hook to run when shortcode is found.
- * @see https://codex.wordpress.org/Function_Reference/add_shortcode
- */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_blocks_shortcode' ) ) {
 
-  add_shortcode( 'wpdtrt_soundcloud_pages_blocks', 'wpdtrt_soundcloud_pages_blocks_shortcode' );
-
+  /**
+   * add_shortcode
+   * @param       string $tag
+   *    Shortcode tag to be searched in post content.
+   * @param       callable $func
+   *    Hook to run when shortcode is found.
+   *
+   * @since       0.1.0
+   * @uses        ../../../../wp-includes/shortcodes.php
+   * @see         https://codex.wordpress.org/Function_Reference/add_shortcode
+   * @see         http://php.net/manual/en/function.ob-start.php
+   * @see         http://php.net/manual/en/function.ob-get-clean.php
+   */
   function wpdtrt_soundcloud_pages_blocks_shortcode( $atts, $content = null ) {
 
     // post object to get info about the post in which the shortcode appears
@@ -75,6 +78,8 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_blocks_shortcode' ) ) {
 
     return $content;
   }
+
+  add_shortcode( 'wpdtrt_soundcloud_pages_blocks', 'wpdtrt_soundcloud_pages_blocks_shortcode' );
 
 }
 

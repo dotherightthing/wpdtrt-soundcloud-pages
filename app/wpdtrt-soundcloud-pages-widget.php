@@ -4,20 +4,23 @@
  *
  * This file contains PHP.
  *
- * @link       http://www.panoramica.co.nz
- * @since      0.3.0
+ * @link        http://www.panoramica.co.nz
+ * @since       0.1.0
  *
- * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/app
+ * @package     WpDTRT_SoundCloud_Pages
+ * @subpackage  WpDTRT_SoundCloud_Pages/app
  */
 
-/**
- * WP_Widget class
- * This class must be extended for each widget, and WP_Widget::widget() must be overridden.
- * Class names should use capitalized words separated by underscores. Any acronyms should be all upper case.
- * @see https://developer.wordpress.org/reference/classes/wp_widget/
- * @see https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions
- */
+  /**
+   * Extend WP_Widget
+   *    This class must be extended for each widget, and WP_Widget::widget() must be overridden.
+   *    Class names should use capitalized words separated by underscores. Any acronyms should be all upper case.
+   *
+   * @since       0.1.0
+   * @uses        ../../../../wp-includes/class-wp-widget.php:
+   * @see         https://developer.wordpress.org/reference/classes/wp_widget/
+   * @see         https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions
+   */
 if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
 
   class WpDTRT_SoundCloud_Pages_Widget extends WP_Widget {
@@ -28,13 +31,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
     }
 
     /**
-     * WP_Widget::widget
      * Echoes the widget content to the front-end
-     * @param array $args
-     *    Display arguments including 'before_title', 'after_title', 'before_widget', and 'after_widget'.
-     * @param array $instance
-     *    The settings for the particular instance of the widget.
-     * @see https://developer.wordpress.org/reference/classes/wp_widget/widget/
      */
     function widget( $args, $instance ) {
 
@@ -74,12 +71,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
     }
 
     /**
-     * WP_Widget::update
-     * Updates a particular instance of a widget,
-     * by replacing the old instance with data from the new instance
-     * @param array $new_instance
-     * @param array $old_instance
-     * @see https://developer.wordpress.org/reference/classes/wp_widget/update/
+     * Updates a particular instance of a widget, by replacing the old instance with data from the new instance
      */
     function update( $new_instance, $old_instance ) {
       // Save user input (widget options)
@@ -99,8 +91,6 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
     }
 
     /**
-     * WP_Widget::form
-     * @param array $instance
      * Outputs the settings update form in wp-admin.
      */
     function form( $instance ) {
@@ -130,14 +120,18 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
 if ( !function_exists( 'wpdtrt_soundcloud_pages_register_widgets' ) ) {
 
   /**
-   * register the widget
-   * @see https://codex.wordpress.org/Function_Reference/register_widget#Example
+   * Register the widget
+   *
+   * @since       0.1.0
+   * @uses        ../../../../wp-includes/widgets.php
+   * @see         https://codex.wordpress.org/Function_Reference/register_widget#Example
    */
-  add_action( 'widgets_init', 'wpdtrt_soundcloud_pages_register_widgets' );
 
   function wpdtrt_soundcloud_pages_register_widgets() {
     register_widget( 'WpDTRT_SoundCloud_Pages_Widget' );
   }
+
+  add_action( 'widgets_init', 'wpdtrt_soundcloud_pages_register_widgets' );
 
 }
 

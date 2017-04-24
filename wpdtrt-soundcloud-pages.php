@@ -80,7 +80,7 @@ if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_URL' ) ) {
  */
 
   // API data
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-data.php');
+  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-api.php');
 
   // Views
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-options-page.php');

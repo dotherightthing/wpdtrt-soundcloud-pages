@@ -1,28 +1,29 @@
 <?php
 /**
  * Functions which generate HTML strings
- * These are separated out for testing purposes.
  *
  * This file contains PHP.
  *
- * @link       http://www.panoramica.co.nz
- * @since      0.3.0
+ * @link        http://www.panoramica.co.nz
+ * @since       0.1.0
  *
- * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/app
+ * @package     WpDTRT_SoundCloud_Pages
+ * @subpackage  WpDTRT_SoundCloud_Pages/app
  */
 
-/**
- * wpdtrt_soundcloud_pages_html_image
- * Generate the HTML for a block image
- * @param string $key
- *    The key of the corresponding JSON object
- * @param boolean $has_enlargement (optional)
- *    Whether the image should link to an enlargement
- * @return string. An HTML image element, optionally wrapped in a hyperlink.
- */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_html_image' ) ) {
 
+  /**
+   * Generate the HTML for a (linked) image
+   *
+   * @param       string $key
+   *    The key of the corresponding JSON object
+   * @param       boolean $has_enlargement (optional)
+   *    Whether the image should link to an enlargement
+   * @return      string <a href="..."><img src="..." alt="..."></a>
+   *
+   * @since       0.1.0
+   */
   function wpdtrt_soundcloud_pages_html_image( $key, $has_enlargement = 0 ) {
 
     // if options have not been stored, exit
@@ -85,7 +86,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_html_image' ) ) {
 
     $str .='" alt="';
 
-    $str .= wpdtrt_soundcloud_pages_html_title( $key, $has_enlargement );
+    $str .= wpdtrt_soundcloud_pages_html_alt( $key, $has_enlargement );
 
     $str .= '. ">';
 
@@ -97,17 +98,17 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_html_image' ) ) {
   }
 }
 
-/**
- * wpdtrt_soundcloud_pages_html_latlng
- * Get a block's map coordinates
- * @param string $key
- *    The key of the JSON object.
- * @return string. "lat,lng" | ""
- */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_html_latlng' ) ) {
 
-  //$wpdtrt_soundcloud_pages_data[$key]->{'address'}
-
+  /**
+   * Get the coordinates of a map location
+   *
+   * @param string $key
+   *    The key of the JSON object.
+   * @return      string "lat,lng" | ""
+   *
+   * @since       0.1.0
+   */
   function wpdtrt_soundcloud_pages_html_latlng( $key ) {
 
     // if options have not been stored, exit
@@ -121,35 +122,37 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_html_latlng' ) ) {
     $wpdtrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
 
     // user - map block
-    if ( isset( $wpdtrt_soundcloud_pages_data[$key]->{'address'} ) ) :
+    if ( isset( $wpdtrt_soundcloud_pages_data[$key]->{'address'} ) ) {
 
       $lat = $wpdtrt_soundcloud_pages_data[$key]->{'address'}->{'geo'}->{'lat'};
       $lng = $wpdtrt_soundcloud_pages_data[$key]->{'address'}->{'geo'}->{'lng'};
 
       $str = $lat . ',' . $lng;
 
-    else:
+    } else {
 
       $str = '';
 
-    endif;
+    }
 
     return $str;
   }
 }
 
-/**
- * wpdtrt_soundcloud_pages_html_title
- * Get a block's title
- * @param string $key
- *    The key of the JSON object.
- * @param boolean $has_enlargement (optional)
- *    Whether the image should link to an enlargement
- * @return string. "The title"
- */
-if ( !function_exists( 'wpdtrt_soundcloud_pages_html_title' ) ) {
+if ( !function_exists( 'wpdtrt_soundcloud_pages_html_alt' ) ) {
 
-  function wpdtrt_soundcloud_pages_html_title( $key, $has_enlargement = 0 ) {
+  /**
+   * Generate an Alt attribute
+   *
+   * @param       string $key
+   *    The key of the JSON object.
+   * @param       boolean $has_enlargement (optional)
+   *    Whether the image should link to an enlargement
+   * @return      string The title
+   *
+   * @since       0.1.0
+   */
+  function wpdtrt_soundcloud_pages_html_alt( $key, $has_enlargement = 0 ) {
 
     // if options have not been stored, exit
     $wpdtrt_soundcloud_pages_options = get_option('wpdtrt_soundcloud_pages');
@@ -181,15 +184,15 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_html_title' ) ) {
   }
 }
 
-/**
- * wpdtrt_soundcloud_pages_html_date
- * Get the data set's last modified date.
- * @param boolean $has_enlargement (optional)
- *    Whether the image should link to an enlargement
- * @return string. <p class="wpdtrt_soundcloud_pages_date">Last updated 23rd April 2017</p>
- */
 if ( !function_exists( 'wpdtrt_soundcloud_pages_html_date' ) ) {
 
+  /**
+   * Generate the HTML for the last modified date
+   *
+   * @return      string <p class="wpdtrt_soundcloud_pages_date">Last updated 23rd April 2017</p>
+   *
+   * @since       0.1.0
+   */
   function wpdtrt_soundcloud_pages_html_date() {
 
     // if options have not been stored, exit

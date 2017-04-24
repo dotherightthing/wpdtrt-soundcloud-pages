@@ -1,16 +1,16 @@
 <?php
 /**
  * Template partial for Admin Options page
- * WP Admin > Settings > WP SoundCloud Pages
+ *    WP Admin > Settings > WP SoundCloud Pages
  *
  * This file contains PHP, and HTML from the WordPress_Admin_Style plugin.
  *
- * @link       http://www.panoramica.co.nz
- * @link       /wp-admin/admin.php?page=WordPress_Admin_Style#twocolumnlayout2
- * @since      0.3.0
+ * @link        http://www.panoramica.co.nz
+ * @link        /wp-admin/admin.php?page=WordPress_Admin_Style#twocolumnlayout2
+ * @since       0.1.0
  *
- * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/views
+ * @package     WpDTRT_SoundCloud_Pages
+ * @subpackage  WpDTRT_SoundCloud_Pages/views
  */
 ?>
 

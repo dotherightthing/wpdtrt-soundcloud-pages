@@ -6,7 +6,7 @@
  * This file contains PHP.
  *
  * @link        http://www.panoramica.co.nz
- * @since       0.3.0
+ * @since       0.4.0
  *
  * @package     WpDTRT_SoundCloud_Pages
  * @subpackage  WpDTRT_SoundCloud_Pages/includes

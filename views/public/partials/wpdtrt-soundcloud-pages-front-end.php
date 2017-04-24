@@ -4,11 +4,11 @@
  *
  * This file contains PHP, and HTML.
  *
- * @link       http://www.panoramica.co.nz
- * @since      0.3.0
+ * @link        http://www.panoramica.co.nz
+ * @since       0.1.0
  *
- * @package    WpDTRT_SoundCloud_Pages
- * @subpackage WpDTRT_SoundCloud_Pages/views
+ * @package     WpDTRT_SoundCloud_Pages
+ * @subpackage  WpDTRT_SoundCloud_Pages/views
  */
 ?>
 
