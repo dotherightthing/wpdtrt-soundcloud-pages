@@ -120,37 +120,22 @@
           <div class="postbox">
 
             <h2>
-              <span><?php esc_attr_e( 'Sample blocks', 'wp_admin_style' ); ?></span>
+              <span><?php esc_attr_e( 'SoundCloud Albums', 'wp_admin_style' ); ?></span>
             </h2>
 
             <div class="inside">
 
-              <p>Your SoundCloud account contains <?php echo count( $wpdtrt_soundcloud_pages_data ); ?> track pages.</p>
-
-              <p>The first 6 are listed below:</p>
+              <p>Your SoundCloud account contains <?php echo count( $wpdtrt_soundcloud_pages_data ); ?> albums:</p>
 
               <div class="wpdtrt-soundcloud-pages-blocks">
-                <ul>
 
-                <?php
-                  $max_length = 6;
-                  $count = 0;
-                  $display_count = 1;
+                <form id="wpdtrt-soundcloud-pages-albums-table" method="GET">
+                  <input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>"/>
+                  <?php
+                      $wpdtrt_soundcloud_pages_albums_table->display();
+                   ?>
+                </form>
 
-                  foreach( $wpdtrt_soundcloud_pages_data as $key => $val ) {
-                    //echo "<li>" . wpdtrt_soundcloud_pages_html_image( $key ) . "</li>\r\n";
-
-                    $count++;
-                    $display_count++;
-
-                    // when we reach the end of the demo sample, stop looping
-                    if ($count === $max_length) {
-                      break;
-                    }
-                  }
-                  // end foreach
-                ?>
-                </ul>
               </div>
 
               <?php

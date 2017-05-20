@@ -122,6 +122,10 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_options_page' ) ) {
       $wpdtrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
     }
 
+    // Prepare the data table
+    $wpdtrt_soundcloud_pages_albums_table = new WpDTRT_SoundCloud_Pages_List_Table($wpdtrt_soundcloud_pages_data);
+    $wpdtrt_soundcloud_pages_albums_table->prepare_items();
+
     /**
      * 4. Load the HTML template
      * This function's variables will be available to this template.

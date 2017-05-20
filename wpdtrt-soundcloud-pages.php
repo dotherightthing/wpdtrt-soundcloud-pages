@@ -93,6 +93,10 @@ if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_URL' ) ) {
   // API data
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-api.php');
 
+  // Data Tables
+  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-datatables.php');
+
+
   // Views
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-options-page.php');
   require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-widget.php');
