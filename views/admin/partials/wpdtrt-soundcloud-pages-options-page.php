@@ -17,7 +17,7 @@
 <div class="wrap">
 
   <div id="icon-options-general" class="icon32"></div>
-  <h1><?php esc_attr_e( 'WP SoundCloud Pages', 'wp_admin_style' ); ?>: Placeholder blocks</h1>
+  <h1><?php esc_attr_e( 'WP SoundCloud Pages', 'wp_admin_style' ); ?></h1>
 
   <div id="poststuff">
 
@@ -166,31 +166,41 @@
           <div class="postbox">
 
             <h2>
-              <span><?php esc_attr_e( 'Raw block data', 'wp_admin_style'); ?></span>
+              <span><?php esc_attr_e( 'Raw data', 'wp_admin_style'); ?></span>
             </h2>
 
             <div class="inside">
 
-              <p>The data used to generate the list above.</p>
+              <p>Samples of the playlist data types:</p>
 
-              <div class="wpdtrt-soundcloud-pages-data"><pre><code><?php echo "{\r\n";
+              <div class="wpdtrt-soundcloud-pages-data">
+                <?php
 
-                  //$count = 0;
-                  //$max_length = 6;
+                  $demo_types = array('album', 'compilation', 'ep', 'single');
 
-                  //foreach( $wpdtrt_soundcloud_pages_data as $key => $val ) {
-                    var_dump( $wpdtrt_soundcloud_pages_data );
+                  foreach( $wpdtrt_soundcloud_pages_data as $key => $val ) {
 
-                    //$count++;
+                    $playlist_type = $wpdtrt_soundcloud_pages_data[$key]->{'playlist_type'};
 
-                    // when we reach the end of the demo sample, stop looping
-                    //if ($count === $max_length) {
-                    //  break;
-                   // }
+                    if ( in_array( $playlist_type, $demo_types ) ) {
+                      echo "<h3>" . $playlist_type . "</h3>";
+                      echo "<pre><code>{\r\n";
+                      var_dump( $val );
+                      echo "}\r\n";
+                      echo "</code></pre>";
 
-                  //}
+                      /**
+                       * Remove playlist_type from demo_types array
+                       * so that it is not output again
+                       * @uses http://stackoverflow.com/a/36377356
+                       */
+                      unset( $demo_types[array_search($playlist_type, $demo_types)] );
 
-                  echo "}\r\n"; ?></code></pre></div>
+                    }
+
+                  }
+                ?>
+              </div>
 
             </div> <!-- .inside -->
 

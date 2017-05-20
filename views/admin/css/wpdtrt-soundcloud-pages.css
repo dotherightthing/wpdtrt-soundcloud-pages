@@ -10,8 +10,9 @@
  * @subpackage  WpDTRT_SoundCloud_Pages/views
  */
 
-.wpdtrt-soundcloud-pages-data {
-  overflow: hidden;
+.wpdtrt-soundcloud-pages-data pre {
+  overflow: auto;
+  height: 25em;
 }
 
 .wpdtrt-soundcloud-pages-data code {
