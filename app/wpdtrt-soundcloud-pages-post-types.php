@@ -83,8 +83,8 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_post_type_create' ) ) {
         'can_export' =>                 true,
         'delete_with_user' =>           null,
         'show_in_rest' =>               false,
-        'rest_base' =>                  'soundcloud_pages',
-        'rest_controller_class' =>      WP_REST_Posts_Controller
+        'rest_base' =>                  'soundcloud_pages'
+//        'rest_controller_class' =>      WP_REST_Posts_Controller // undefined constant
       ));
     }
 
