@@ -77,7 +77,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_options_page' ) ) {
         $wpdtrt_soundcloud_pages_clientid = esc_html( $_POST['wpdtrt_soundcloud_pages_clientid'] );
 
         // 2. send user preferences to API to get results
-        $wpdtrt_soundcloud_pages_data = wpdtrt_soundcloud_pages_data_get(
+        $wpdtrt_soundcloud_pages_data = wpdtrt_soundcloud_pages_get_data(
           $wpdtrt_soundcloud_pages_username,
           $wpdtrt_soundcloud_pages_clientid
         );
