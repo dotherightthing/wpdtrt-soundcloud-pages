@@ -3,7 +3,7 @@
     "nameFriendly": "WP SoundCloud Pages",
     "nameAdminMenu": "SoundCloud Pages",
     "urlAdminMenu": "soundcloud-pages",
-    "description": "Generate WordPress pages from SoundCloud pages",
+    "description": "Generate WordPress pages from SoundCloud playlists",
     "tags": "SoundCloud, music, theming, import",
     "homepage": "http://www.panoramica.co.nz",
     "license": "GPLv2 or later",

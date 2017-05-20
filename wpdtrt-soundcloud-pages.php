@@ -2,7 +2,7 @@
 /*
 Plugin Name:  WP SoundCloud Pages
 Plugin URI:   http://www.panoramica.co.nz
-Description:  Generate WordPress pages from SoundCloud pages
+Description:  Generate WordPress pages from SoundCloud playlists
 Version:      0.3.0
 Author:       Dan Smith
 Author URI:   http://dotherightthing.co.nz
@@ -13,7 +13,7 @@ Domain Path:  /languages
 */
 
 /**
- * Generate WordPress pages from SoundCloud pages
+ * Generate WordPress pages from SoundCloud playlists
  *
  * This file contains PHP.
  *

@@ -9,11 +9,11 @@ Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Generate WordPress pages from SoundCloud pages
+Generate WordPress pages from SoundCloud playlists
 
 == Description ==
 
-Generate WordPress pages from SoundCloud pages
+Generate WordPress pages from SoundCloud playlists
 
 == Installation ==
 
@@ -22,6 +22,26 @@ Generate WordPress pages from SoundCloud pages
 1. Use the Settings->Plugin Name screen to configure the plugin
 
 == Frequently Asked Questions ==
+
+= Which playlists are converted into pages? =
+
+In SoundCloud, each playlist may be assigned one of five playlist 'types':
+
+* Playlist (the default)
+* Album
+* EP
+* Single
+* Compilation
+
+[SoundCloud's Album documentation](https://help.soundcloud.com/hc/en-us/articles/115003561288-Creating-an-Album) states that a playlist (set) may be marked as an 'official release', by assiging a 'Playlist type' other than the default, and by setting a release date.
+
+These official releases then appear on your SoundCloud 'Albums' page (https://soundcloud.com/username/albums).
+
+This plugin is intended to promote official releases, and so uses the Album system and the SoundCloud playlist types. This provides an easy way to separate finished tracks from demos, experiments and works-in-progress.
+
+= Which features are on the roadmap? =
+
+Customisation of Playlist type labels in the plugin, for example to classify both (performance) 'Compilations' and (concept) 'Albums' as 'Mixes'.
 
 = How do I use the widget? =
 

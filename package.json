@@ -1,7 +1,7 @@
 {
   "name": "wpdtrt-soundcloud-pages",
   "version": "0.3.0",
-  "description": "Generate WordPress pages from SoundCloud pages",
+  "description": "Generate WordPress pages from SoundCloud playlists",
   "main": "readme.txt",
   "person": {
     "name" : "Dan Smith",

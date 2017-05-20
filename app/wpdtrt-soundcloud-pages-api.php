@@ -57,6 +57,8 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_get_data' ) ) {
   /**
    * Request the data from the API
    *
+   * To access public SoundCloud resources, you just have to pass a client_id parameter.
+   *
    * @param       string $wpdtrt_soundcloud_pages_username
    *    The user's SoundCloud user name (https://soundcloud.com/username)
    * @param      string $wpdtrt_soundcloud_pages_clientid
@@ -66,12 +68,13 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_get_data' ) ) {
    * @since       0.1.0
    * @uses        ../../../../wp-includes/http.php
    * @see         https://developer.wordpress.org/reference/functions/wp_remote_get/
+   * @see         https://developers.soundcloud.com/docs/api/reference
    */
   function wpdtrt_soundcloud_pages_get_data( $wpdtrt_soundcloud_pages_username, $wpdtrt_soundcloud_pages_clientid ) {
 
     $wpdtrt_soundcloud_pages_userid = wpdtrt_soundcloud_pages_get_userid( $wpdtrt_soundcloud_pages_username, $wpdtrt_soundcloud_pages_clientid );
 
-    $endpoint = 'https://api.soundcloud.com/users/' . $wpdtrt_soundcloud_pages_userid . '/tracks?client_id=' . $wpdtrt_soundcloud_pages_clientid;
+    $endpoint = 'https://api.soundcloud.com/users/' . $wpdtrt_soundcloud_pages_userid . '/playlists?client_id=' . $wpdtrt_soundcloud_pages_clientid;
 
     $response = wp_remote_get(
       $endpoint,
