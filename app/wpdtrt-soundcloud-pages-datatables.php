@@ -74,7 +74,7 @@
             'title' => $title,
             'type' => ucfirst($playlist_type),
             'release_date' => $release_date,
-            'id' => $id
+            'id' => $id // for checkbox
           );
         }
       }
