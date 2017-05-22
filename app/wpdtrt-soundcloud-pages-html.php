@@ -214,4 +214,28 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_html_date' ) ) {
   }
 }
 
+if ( !function_exists( 'wpdtrt_soundcloud_pages_html_excerpt' ) ) {
+
+  /**
+   * Shorten post excerpt to first paragraph
+   *
+   * @since 0.4.0
+   * @uses http://www.codecheese.com/2013/11/get-the-first-paragraph-as-an-excerpt-for-wordpress/
+   */
+  function wpdtrt_soundcloud_pages_html_excerpt($text, $raw_excerpt) {
+
+    $post_type = get_post_type();
+
+    if ( ( ! $raw_excerpt ) && ( $post_type === 'soundcloud_pages' ) ) {
+
+        $content = apply_filters( 'the_content', get_the_content() );
+        $text = substr( $content, 0, strpos( $content, '</p>' ) + 4 );
+    }
+    return $text;
+  }
+
+  add_filter( 'wp_trim_excerpt', 'wpdtrt_soundcloud_pages_html_excerpt', 10, 2 );
+
+}
+
 ?>
