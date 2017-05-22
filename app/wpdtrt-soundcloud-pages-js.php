@@ -25,6 +25,13 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_frontend_js' ) ) {
    */
   function wpdtrt_soundcloud_pages_frontend_js() {
 
+    wp_enqueue_script( 'wpdtrt_soundcloud_pages_player_js',
+      'https://w.soundcloud.com/player/api.js',
+      array('wpdtrt_soundcloud_pages_frontend_js'),
+      false,
+      true
+    );
+
     wp_enqueue_script( 'wpdtrt_soundcloud_pages_frontend_js',
       WPDTRT_SOUNDCLOUD_PAGES_URL . 'views/public/js/wpdtrt-soundcloud-pages.js',
       array('jquery'),
@@ -32,10 +39,13 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_frontend_js' ) ) {
       true
     );
 
+    global $post;
+
     wp_localize_script( 'wpdtrt_soundcloud_pages_frontend_js',
       'wpdtrt_soundcloud_pages_config',
       array(
-        'ajax_url' => admin_url( 'admin-ajax.php' ) // wpdtrt_soundcloud_pages_config.ajax_url
+        'ajax_url' => admin_url( 'admin-ajax.php' ), // wpdtrt_soundcloud_pages_config.ajax_url
+        'soundcloud_permalink_url' => get_post_meta($post->ID, 'soundcloud_permalink_url', true)
       )
     );
 

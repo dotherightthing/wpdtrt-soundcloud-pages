@@ -13,16 +13,42 @@
 
 jQuery(document).ready(function($){
 
-	$('.wpdtrt-soundcloud-pages-badge').hover(function() {
-		$(this).find('.wpdtrt-soundcloud-pages-badge-info').stop(true, true).fadeIn(200);
-	}, function() {
-		$(this).find('.wpdtrt-soundcloud-pages-badge-info').stop(true, true).fadeOut(200);
-	});
+  /**
+   * SoundCloud HTML5 Widget
+   *
+   * @since 0.4.0
+   * @see https://developers.soundcloud.com/blog/html5-widget-api
+   * @see https://developers.soundcloud.com/docs/api/html5-widget
+   * @see https://w.soundcloud.com/player/api_playground.html
+   * @see http://codepen.io/nickcolley/pen/uoCIy
+   */
+  function soundcloud_player_widget() {
 
-  $.post( wpdtrt_soundcloud_pages_config.ajax_url, {
-    action: 'wpdtrt_soundcloud_pages_data_refresh'
-  }, function( response ) {
-    //console.log( 'Ajax complete' );
-  });
+    var sc_widget = '<iframe id="sc-widget" src="" width="100%" height="465" scrolling="no" frameborder="no"></iframe>';
+
+    $('#soundcloud-player').append(sc_widget);
+
+    // the widget iframe loads with the same URL as the one that will be loaded via SC.Widget
+    $('#sc-widget').attr('src', 'https://w.soundcloud.com/player/?url=' + wpdtrt_soundcloud_pages_config.soundcloud_permalink_url);
+
+    var widgetIframe = document.getElementById('sc-widget'),
+        widget       = SC.Widget(widgetIframe);
+
+        widget.bind(SC.Widget.Events.READY, function() {
+          widget.load( wpdtrt_soundcloud_pages_config.soundcloud_permalink_url, {
+            show_artwork: false,
+            show_comments: false,
+            auto_play: true,
+            show_playcount: false,
+            show_user: false,
+            liking: false,
+            download: false,
+            sharing: false,
+            buying: false
+        });
+      });
+  }
+
+  soundcloud_player_widget();
 
 });

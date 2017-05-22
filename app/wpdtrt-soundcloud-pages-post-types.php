@@ -152,4 +152,26 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_post_type_create_rewrite_flush' 
     register_activation_hook( __FILE__, 'wpdtrt_soundcloud_pages_post_type_create_rewrite_flush' );
 }
 
+if ( !function_exists('wpdtrt_soundcloud_pages_post_type_template') ) {
+
+    /**
+     * Force the plugin template to be used by SoundCloud pages
+     *
+     * @since       0.4.0
+     * @see         http://www.adviceinteractivegroup.com/blog/using-wordpress-custom-post-type-templates-in-a-plugin/
+     */
+    function wpdtrt_soundcloud_pages_post_type_template($single_template) {
+
+        global $wp_query, $post;
+
+        if ( $post->post_type == 'soundcloud_pages' ) {
+            $single_template = WPDTRT_SOUNDCLOUD_PAGES_PATH . '/views/public/templates/wpdtrt-soundcloud-pages-single.php';
+        }
+
+        return $single_template;
+    }
+
+    add_filter( 'single_template', 'wpdtrt_soundcloud_pages_post_type_template' );
+}
+
 ?>

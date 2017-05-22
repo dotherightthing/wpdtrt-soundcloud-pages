@@ -34,7 +34,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_create_post' ) ) {
      * @see         https://tommcfarlin.com/programmatically-create-a-post-in-wordpress/
      * @see         https://wordpress.stackexchange.com/questions/37163/proper-formatting-of-post-date-for-wp-insert-post#37164
      */
-    function wpdtrt_soundcloud_pages_create_post( $author_id, $slug, $title, $date, $excerpt, $content, $category ) {
+    function wpdtrt_soundcloud_pages_create_post( $author_id, $slug, $title, $date, $excerpt, $content, $category, $soundcloud_permalink_url ) {
 
         $postExists = get_page_by_title($title, OBJECT, 'soundcloud_pages');
 
@@ -59,6 +59,9 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_create_post' ) ) {
             // add post to the correct category
             wp_set_post_terms( $post_id, array( (int)$category ), 'playlisttype' );
 
+            // store the SoundCloud permalink URL so we can reference it in the template
+            add_post_meta($post_id, 'soundcloud_permalink_url', $soundcloud_permalink_url, $unique);
+
         // else update the existing page
         } else {
 
@@ -75,6 +78,12 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_create_post' ) ) {
 
           // add post to the correct category
           wp_set_post_terms( $post_id, array( (int)$category ), 'playlisttype' );
+
+          // update the SoundCloud permalink URL which is referenced in the template
+          if ( ! add_post_meta($post_id, 'soundcloud_permalink_url', $soundcloud_permalink_url, true) ) {
+             update_post_meta( $post_id, 'soundcloud_permalink_url', $soundcloud_permalink_url );
+          }
+
         }
     }
 
@@ -113,9 +122,10 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_create_posts' ) ) {
           $excerpt = wpdtrt_soundcloud_pages_post_excerpt($key);
           $content = wpdtrt_soundcloud_pages_post_content($key);
           $category = wpdtrt_soundcloud_pages_post_category($key);
+          $soundcloud_permalink_url = wpdtrt_soundcloud_pages_post_permalink_url($key);
 
           if ( ( $slug !== '') && ( $title !== '' ) ) {
-            wpdtrt_soundcloud_pages_create_post( $author, $slug, $title, $date, $excerpt, $content, $category );
+            wpdtrt_soundcloud_pages_create_post( $author, $slug, $title, $date, $excerpt, $content, $category, $soundcloud_permalink_url );
           }
           else {
             error_log($key);
@@ -172,7 +182,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_post_slug' ) ) {
    *    The key of the corresponding JSON object
    * @return      string slug
    *
-   * @since       0.1.0
+   * @since       0.4.0
    */
   function wpdtrt_soundcloud_pages_post_slug( $key ) {
 
@@ -191,6 +201,41 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_post_slug' ) ) {
     if ( isset( $wpdtrt_soundcloud_pages_data[$key]->{'permalink'} ) ) {
 
       $str .= $wpdtrt_soundcloud_pages_data[$key]->{'permalink'};
+
+    }
+
+    return $str;
+  }
+}
+
+if ( !function_exists( 'wpdtrt_soundcloud_pages_post_permalink_url' ) ) {
+
+  /**
+   * Retrieve the SoundCloud page's permalink_url
+   *
+   * @param       string $key
+   *    The key of the corresponding JSON object
+   * @return      string slug
+   *
+   * @since       0.4.0
+   */
+  function wpdtrt_soundcloud_pages_post_permalink_url( $key ) {
+
+    // if options have not been stored, exit
+    $wpdtrt_soundcloud_pages_options = get_option('wpdtrt_soundcloud_pages');
+
+    if ( $wpdtrt_soundcloud_pages_options === '' ) {
+      return '';
+    }
+
+    // the data set
+    $wpdtrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
+
+    $str = '';
+
+    if ( isset( $wpdtrt_soundcloud_pages_data[$key]->{'permalink_url'} ) ) {
+
+      $str .= $wpdtrt_soundcloud_pages_data[$key]->{'permalink_url'};
 
     }
 
