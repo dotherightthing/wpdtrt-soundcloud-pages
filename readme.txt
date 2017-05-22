@@ -39,11 +39,20 @@ These official releases then appear on your SoundCloud 'Albums' page (https://so
 
 This plugin is intended to promote official releases, and so uses the Album system and the SoundCloud playlist types. This provides an easy way to separate finished tracks from demos, experiments and works-in-progress.
 
+= How is SoundCloud content formatted? =
+
+SoundCloud doesn't support HTML formatting, so:
+
+* double line breaks are converted to paragraphs
+* lines of uppercase text are converted to HTML heading 3s
+
 = Which features are on the roadmap? =
 
 Customisation of Playlist type labels in the plugin, for example to classify both (performance) 'Compilations' and (concept) 'Albums' as 'Mixes'.
 
 = How do I use the widget? =
+
+TO UPDATE
 
 One or more widgets can be displayed within one or more sidebars:
 

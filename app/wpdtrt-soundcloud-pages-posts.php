@@ -309,6 +309,21 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_post_content' ) ) {
 
       $content_paragraphs = explode("\n", $content);
 
+      /**
+       * Convert SoundCloud 'headings' into HTML headings
+       *  Regex: uppercase strings of more than 2 letters, followed by a line break
+       *
+       * @since 0.4.0
+       * @see http://www.regexr.com/
+       * @see https://www.functions-online.com/preg_match_all.html
+       * @see http://stackoverflow.com/questions/2638288/preg-replace-to-capitalize-a-letter-after-a-quote
+       */
+
+      $pattern = '/^([A-Z0-9 ]{2,}[\n])$/m';
+      $content = preg_replace_callback($pattern, function ($matches) {
+        return "<h3>" . ucwords( strtolower($matches[0]) ) . "</h3>\n";
+      }, $content);
+
       // we want to return everything except the first paragraph
       $offset = strlen( $content_paragraphs[0] );
 
@@ -344,7 +359,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_post_category' ) ) {
     }
 
     // the data set
-    $wpdtrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
+    $wpdrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
 
     $str = '';
 
