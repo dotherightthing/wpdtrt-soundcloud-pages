@@ -34,7 +34,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_create_post' ) ) {
      * @see         https://tommcfarlin.com/programmatically-create-a-post-in-wordpress/
      * @see         https://wordpress.stackexchange.com/questions/37163/proper-formatting-of-post-date-for-wp-insert-post#37164
      */
-    function wpdtrt_soundcloud_pages_create_post( $author_id, $slug, $title, $date, $content, $category ) {
+    function wpdtrt_soundcloud_pages_create_post( $author_id, $slug, $title, $date, $excerpt, $content, $category ) {
 
         $postExists = get_page_by_title($title, OBJECT, 'soundcloud_pages');
 
@@ -50,6 +50,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_create_post' ) ) {
               'post_status'   =>  'publish',
               'post_type'   =>  'soundcloud_pages',
               'post_date' => date("Y-m-d H:i:s", strtotime($date)),
+              'post_excerpt' => $excerpt,
               'post_content' => $content
             );
 
@@ -66,6 +67,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_create_post' ) ) {
           $my_post = array(
             'ID' => $post_id,
             'post_title' => $title,
+            'post_excerpt' => $excerpt,
             'post_content' => $content
           );
 
@@ -105,14 +107,15 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_create_posts' ) ) {
         foreach( $wpdtrt_soundcloud_pages_data as $key => $val ) {
 
           $author = 1; // To check, could make an option for this
-          $slug = wpdtrt_soundcloud_pages_post_slug( $key );
+          $slug = wpdtrt_soundcloud_pages_post_slug($key);
           $title = wpdtrt_soundcloud_pages_post_title( $key );
           $date = wpdtrt_soundcloud_pages_post_date($key, '-');
+          $excerpt = wpdtrt_soundcloud_pages_post_excerpt($key);
           $content = wpdtrt_soundcloud_pages_post_content($key);
           $category = wpdtrt_soundcloud_pages_post_category($key);
 
           if ( ( $slug !== '') && ( $title !== '' ) ) {
-            wpdtrt_soundcloud_pages_create_post( $author, $slug, $title, $date, $content, $category );
+            wpdtrt_soundcloud_pages_create_post( $author, $slug, $title, $date, $excerpt, $content, $category );
           }
           else {
             error_log($key);
@@ -236,6 +239,45 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_post_date' ) ) {
   }
 }
 
+if ( !function_exists( 'wpdtrt_soundcloud_pages_post_excerpt' ) ) {
+
+  /**
+   * Extract excerpt from SoundCloud content
+   *
+   * @since 0.4.0
+   * @uses http://www.codecheese.com/2013/11/get-the-first-paragraph-as-an-excerpt-for-wordpress/
+   */
+  function wpdtrt_soundcloud_pages_post_excerpt($key) {
+
+    // if options have not been stored, exit
+    $wpdtrt_soundcloud_pages_options = get_option('wpdtrt_soundcloud_pages');
+
+    if ( $wpdtrt_soundcloud_pages_options === '' ) {
+      return '';
+    }
+
+    // the data set
+    $wpdtrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
+
+    $excerpt = '';
+
+    if ( isset( $wpdtrt_soundcloud_pages_data[$key]->{'description'} ) ) {
+
+      $content = $wpdtrt_soundcloud_pages_data[$key]->{'description'};
+
+      $content_paragraphs = explode("\n", $content);
+
+      // we want to return everything except the first paragraph
+      $offset = strlen( $content_paragraphs[0] );
+
+      $excerpt = substr( $content, 0, $offset );
+
+      return $excerpt;
+    }
+  }
+
+}
+
 if ( !function_exists( 'wpdtrt_soundcloud_pages_post_content' ) ) {
 
   /**
@@ -263,8 +305,18 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_post_content' ) ) {
 
     if ( isset( $wpdtrt_soundcloud_pages_data[$key]->{'description'} ) ) {
 
-      $str .= $wpdtrt_soundcloud_pages_data[$key]->{'description'};
+      $content = $wpdtrt_soundcloud_pages_data[$key]->{'description'};
 
+      $content_paragraphs = explode("\n", $content);
+
+      // we want to return everything except the first paragraph
+      $offset = strlen( $content_paragraphs[0] );
+
+      // reset content
+      $content_less_excerpt = substr( $content, $offset );
+
+      // output the trimmed content
+      $str = $content_less_excerpt;
     }
 
     return $str;

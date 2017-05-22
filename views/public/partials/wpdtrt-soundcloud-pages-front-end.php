@@ -42,7 +42,7 @@
 
       echo "<li>";
 
-      echo wpdtrt_soundcloud_pages_html_image( $key, $has_enlargement );
+      //echo wpdtrt_soundcloud_pages_html_image( $key, $has_enlargement );
 
       echo "</li>\r\n";
 
