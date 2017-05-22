@@ -56,10 +56,7 @@
         $permalink_url = $wpdtrt_soundcloud_pages_data[$key]->{'permalink_url'};
         $title = $wpdtrt_soundcloud_pages_data[$key]->{'title'};
         $username = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_username'];
-        $release_day = $wpdtrt_soundcloud_pages_data[$key]->{'release_day'};
-        $release_month = $wpdtrt_soundcloud_pages_data[$key]->{'release_month'};
-        $release_year = $wpdtrt_soundcloud_pages_data[$key]->{'release_year'};
-        $release_date = $release_year . '.' . $release_month . '.' . $release_day;
+        $release_date = wpdtrt_soundcloud_pages_post_date($key, '.');
 
         $id = str_replace('http://soundcloud.com/' . $username . '/sets/', '', $permalink_url);
 

@@ -131,7 +131,8 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_register_widgets' ) ) {
     register_widget( 'WpDTRT_SoundCloud_Pages_Widget' );
   }
 
-  add_action( 'widgets_init', 'wpdtrt_soundcloud_pages_register_widgets' );
+  // DISABLED
+  //add_action( 'widgets_init', 'wpdtrt_soundcloud_pages_register_widgets' );
 
 }
 

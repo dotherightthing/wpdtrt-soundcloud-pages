@@ -42,7 +42,8 @@
           <div class="postbox">
 
             <h2>
-              <span><?php esc_attr_e( 'Your SoundCloud Account', 'wp_admin_style' ); ?></span>
+              <span class="step">1.</span>
+              <span><?php esc_attr_e( 'Log in to your SoundCloud account', 'wp_admin_style' ); ?></span>
             </h2>
 
             <div class="inside">
@@ -109,17 +110,58 @@
            * then $wpdtrt_soundcloud_pages_data will contain the body of the resulting JSON.
            */
 
-          /**
-           * Start Scenario 2a - data sample
-           * We display a sample of the data
-           * so the user can verify that they have chosen the type
-           * which meets their needs.
-           */
           ?>
 
           <div class="postbox">
 
             <h2>
+              <span class="step">1.</span>
+              <span><?php esc_attr_e( 'Log In To Your SoundCloud Account', 'wp_admin_style'); ?></span>
+            </h2>
+
+            <div class="inside">
+
+              <form name="wpdtrt_soundcloud_pages_data_form" method="post" action="">
+
+                <input type="hidden" name="wpdtrt_soundcloud_pages_form_submitted" value="Y" />
+
+                <p>
+                  <label for="wpdtrt_soundcloud_pages_username">New user ID:</label>
+                </p>
+                <p>
+                  <input type="text" name="wpdtrt_soundcloud_pages_username" id="wpdtrt_soundcloud_pages_username" value="<?php echo $wpdtrt_soundcloud_pages_username; ?>">
+                </p>
+                <p>
+
+                <p>
+                  <label for="wpdtrt_soundcloud_pages_clientid">New SoundCloud Client ID:</label>
+                </p>
+                <p>
+                  <input type="password" name="wpdtrt_soundcloud_pages_clientid" id="wpdtrt_soundcloud_pages_clientid" value="<?php echo $wpdtrt_soundcloud_pages_clientid; ?>">
+                </p>
+                <p>
+                  <?php
+                    submit_button(
+                      $text = 'Save &amp; load new data',
+                      $type = 'primary',
+                      $name = 'wpdtrt_soundcloud_pages_submit',
+                      $wrap = false, // don't wrap in paragraph
+                      $other_attributes = null
+                    );
+                  ?>
+                </p>
+
+              </form>
+
+            </div> <!-- .inside -->
+
+          </div>
+          <!-- .postbox -->
+
+          <div class="postbox" id="wpdtrt-soundcloud-pages-data-table">
+
+            <h2>
+              <span class="step">2.</span>
               <span><?php esc_attr_e( 'SoundCloud Albums', 'wp_admin_style' ); ?></span>
             </h2>
 
@@ -130,10 +172,22 @@
               <div class="wpdtrt-soundcloud-pages-blocks">
 
                 <form id="wpdtrt-soundcloud-pages-albums-table" method="GET">
+                  <input type="hidden" name="wpdtrt_soundcloud_pages_regenerate" value="Y" />
                   <input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>"/>
                   <?php
                       $wpdtrt_soundcloud_pages_albums_table->display();
                    ?>
+                  <p>
+                    <?php
+                      submit_button(
+                        $text = 'Generate pages',
+                        $type = 'primary',
+                        $name = 'wpdtrt_soundcloud_pages_regenerate_submit',
+                        $wrap = false, // don't wrap in paragraph
+                        $other_attributes = null
+                      );
+                    ?>
+                  </p>
                 </form>
 
               </div>
@@ -210,9 +264,6 @@
           <?php
           /**
            * End Scenario 2b - data viewer
-           */
-
-          /**
            * End Scenario 2 - data selected
            */
           endif;
@@ -223,89 +274,6 @@
 
       </div>
       <!-- post-body-content -->
-
-      <!-- sidebar -->
-      <div id="postbox-container-1" class="postbox-container">
-
-        <div class="meta-box-sortables">
-
-          <?php
-          /**
-           * Start Scenario 2 - data selected
-           */
-
-          /**
-           * Start Scenario 2c - data re-selection form
-           * If the user has already chosen a content type
-           * then we'll provide the selection form again,
-           * so that they can choose a different content type.
-           * But this time we'll give it secondary importance
-           * by displaying it in a sidebar:
-           */
-            if ( isset( $wpdtrt_soundcloud_pages_username ) && ( $wpdtrt_soundcloud_pages_username !== '') ) :
-          ?>
-
-          <div class="postbox">
-
-            <h2>
-              <span><?php esc_attr_e( 'Update preferences', 'wp_admin_style'); ?></span>
-            </h2>
-
-            <div class="inside">
-
-              <form name="wpdtrt_soundcloud_pages_data_form" method="post" action="">
-
-                <input type="hidden" name="wpdtrt_soundcloud_pages_form_submitted" value="Y" />
-
-                <p>
-                  <label for="wpdtrt_soundcloud_pages_username">New user ID:</label>
-                </p>
-                <p>
-                  <input type="text" name="wpdtrt_soundcloud_pages_username" id="wpdtrt_soundcloud_pages_username" value="<?php echo $wpdtrt_soundcloud_pages_username; ?>">
-                </p>
-                <p>
-
-                <p>
-                  <label for="wpdtrt_soundcloud_pages_clientid">New SoundCloud Client ID:</label>
-                </p>
-                <p>
-                  <input type="password" name="wpdtrt_soundcloud_pages_clientid" id="wpdtrt_soundcloud_pages_clientid" value="<?php echo $wpdtrt_soundcloud_pages_clientid; ?>">
-                </p>
-                <p>
-                  <?php
-                    submit_button(
-                      $text = 'Save &amp; load new data',
-                      $type = 'primary',
-                      $name = 'wpdtrt_soundcloud_pages_submit',
-                      $wrap = false, // don't wrap in paragraph
-                      $other_attributes = null
-                    );
-                  ?>
-                </p>
-
-              </form>
-
-            </div> <!-- .inside -->
-
-          </div>
-          <!-- .postbox -->
-
-          <?php
-          /**
-           * End Scenario 2c - data re-selection form
-           */
-
-          /**
-           * End Scenario 2 - data selected
-           */
-          endif;
-          ?>
-
-        </div>
-        <!-- .meta-box-sortables -->
-
-      </div>
-      <!-- #postbox-container-1 .postbox-container -->
 
     </div>
     <!-- #post-body .metabox-holder .columns-2 -->

@@ -127,6 +127,19 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_options_page' ) ) {
     $wpdtrt_soundcloud_pages_albums_table->prepare_items();
 
     /**
+     * When the user clicks the Regenerate Pages button
+     *  generate new pages or update existing pages
+     */
+    if ( isset( $_GET['wpdtrt_soundcloud_pages_regenerate'] ) ) {
+      $regenerate = esc_html( $_GET['wpdtrt_soundcloud_pages_regenerate'] );
+
+      if ( $regenerate === 'Y' ) {
+        wpdtrt_soundcloud_pages_create_posts();
+      }
+
+    }
+
+    /**
      * 4. Load the HTML template
      * This function's variables will be available to this template.
      * @todo display the last generated timestamp on the options page
