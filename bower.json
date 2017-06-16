@@ -1,7 +1,7 @@
 {
-  "name": "wpdtrt-soundcloud-pages",
+  "name": "wpdtrt-soundcloud-albums",
   "version": "0.3.0",
-  "description": "Generate WordPress pages from SoundCloud playlists",
+  "description": "Generate WordPress posts from SoundCloud albums",
   "main": "readme.txt",
   "authors": [
     "Dan Smith <dev@dotherightthing.co.nz>"

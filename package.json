@@ -1,7 +1,7 @@
 {
-  "name": "wpdtrt-soundcloud-pages",
+  "name": "wpdtrt-soundcloud-albums",
   "version": "0.3.0",
-  "description": "Generate WordPress pages from SoundCloud playlists",
+  "description": "Generate WordPress posts from SoundCloud playlists",
   "main": "readme.txt",
   "person": {
     "name" : "Dan Smith",
@@ -18,9 +18,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:dotherightthing/wpdtrt-soundcloud-pages.git"
+    "url": "git@github.com:dotherightthing/wpdtrt-soundcloud-albums.git"
   },
   "license": "ISC",
   "homepage": "http://www.panoramica.co.nz",
-  "srcDir": "/Volumes/DanBackup/Dropbox/Websites/network.dotherightthing/public_html/wp-content/plugins/wpdtrt-soundcloud-pages"
+  "srcDir": "/Volumes/DanBackup/Dropbox/Websites/network.dotherightthing/public_html/wp-content/plugins/wpdtrt-soundcloud-albums"
 }

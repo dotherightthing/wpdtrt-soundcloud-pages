@@ -8,14 +8,14 @@
  * @link        https://generatewp.com/shortcodes/
  * @since       0.1.0
  *
- * @example     [wpdtrt_soundcloud_pages_blocks number="4" enlargement="yes"]
- * @example     do_shortcode( '[wpdtrt_soundcloud_pages_blocks number="4" enlargement="yes"]' );
+ * @example     [wpdtrt_soundcloud_albums_blocks number="4" enlargement="yes"]
+ * @example     do_shortcode( '[wpdtrt_soundcloud_albums_blocks number="4" enlargement="yes"]' );
  *
- * @package     WpDTRT_SoundCloud_Pages
- * @subpackage  WpDTRT_SoundCloud_Pages/app
+ * @package     WpDTRT_SoundCloud_Albums
+ * @subpackage  WpDTRT_SoundCloud_Albums/app
  */
 
-if ( !function_exists( 'wpdtrt_soundcloud_pages_blocks_shortcode' ) ) {
+if ( !function_exists( 'wpdtrt_soundcloud_albums_blocks_shortcode' ) ) {
 
   /**
    * add_shortcode
@@ -30,7 +30,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_blocks_shortcode' ) ) {
    * @see         http://php.net/manual/en/function.ob-start.php
    * @see         http://php.net/manual/en/function.ob-get-clean.php
    */
-  function wpdtrt_soundcloud_pages_blocks_shortcode( $atts, $content = null ) {
+  function wpdtrt_soundcloud_albums_blocks_shortcode( $atts, $content = null ) {
 
     // post object to get info about the post in which the shortcode appears
     global $post;
@@ -56,8 +56,8 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_blocks_shortcode' ) ) {
       $enlargement = '0';
     }
 
-    $wpdtrt_soundcloud_pages_options = get_option('wpdtrt_soundcloud_pages');
-    $wpdtrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
+    $wpdtrt_soundcloud_albums_options = get_option('wpdtrt_soundcloud_albums');
+    $wpdtrt_soundcloud_albums_data = $wpdtrt_soundcloud_albums_options['wpdtrt_soundcloud_albums_data'];
 
     /**
      * ob_start — Turn on output buffering
@@ -68,7 +68,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_blocks_shortcode' ) ) {
      */
     ob_start();
 
-    require(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'views/public/partials/wpdtrt-soundcloud-pages-front-end.php');
+    require(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'views/public/partials/wpdtrt-soundcloud-albums-front-end.php');
 
     /**
      * ob_get_clean — Get current buffer contents and delete current output buffer
@@ -79,7 +79,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_blocks_shortcode' ) ) {
     return $content;
   }
 
-  add_shortcode( 'wpdtrt_soundcloud_pages_blocks', 'wpdtrt_soundcloud_pages_blocks_shortcode' );
+  add_shortcode( 'wpdtrt_soundcloud_albums_blocks', 'wpdtrt_soundcloud_albums_blocks_shortcode' );
 
 }
 

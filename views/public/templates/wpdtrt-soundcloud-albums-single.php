@@ -1,6 +1,6 @@
 <?php
 /**
- * SoundCloud Pages Single Post (wpdtrt-soundcloud-pages-single.php)
+ * SoundCloud Albums Single Post (wpdtrt-soundcloud-albums-single.php)
  * ------------------------
  * Display page title and page content.
  * Display SoundCloud HTML5 Widget Player

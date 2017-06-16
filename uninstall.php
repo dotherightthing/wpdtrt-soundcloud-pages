@@ -22,7 +22,7 @@
  * @link https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
  * @since      0.3.0
  *
- * @package    WpDTRT_SoundCloud_Pages
+ * @package    WpDTRT_SoundCloud_Albums
  */
 
 // if uninstall.php is not called by WordPress, die
@@ -30,7 +30,7 @@ if ( ! defined('WP_UNINSTALL_PLUGIN') ) {
   die;
 }
 
-$option_name = "wpdtrt-soundcloud-pages";
+$option_name = "wpdtrt-soundcloud-albums";
 
 delete_option($option_name);
 

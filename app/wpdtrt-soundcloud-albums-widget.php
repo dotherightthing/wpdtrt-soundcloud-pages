@@ -7,8 +7,8 @@
  * @link        http://www.panoramica.co.nz
  * @since       0.1.0
  *
- * @package     WpDTRT_SoundCloud_Pages
- * @subpackage  WpDTRT_SoundCloud_Pages/app
+ * @package     WpDTRT_SoundCloud_Albums
+ * @subpackage  WpDTRT_SoundCloud_Albums/app
  */
 
   /**
@@ -21,13 +21,13 @@
    * @see         https://developer.wordpress.org/reference/classes/wp_widget/
    * @see         https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions
    */
-if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
+if ( !class_exists( 'WpDTRT_SoundCloud_Albums_Widget' ) ) {
 
-  class WpDTRT_SoundCloud_Pages_Widget extends WP_Widget {
+  class WpDTRT_SoundCloud_Albums_Widget extends WP_Widget {
 
     function __construct() {
       // Instantiate the parent object
-      parent::__construct( false, 'WP SoundCloud Pages Widget' );
+      parent::__construct( false, 'WP SoundCloud Albums Widget' );
     }
 
     /**
@@ -54,8 +54,8 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
       $number = $instance['number'];
       $enlargement = $instance['enlargement'];
 
-      $wpdtrt_soundcloud_pages_options = get_option('wpdtrt_soundcloud_pages');
-      $wpdtrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
+      $wpdtrt_soundcloud_albums_options = get_option('wpdtrt_soundcloud_albums');
+      $wpdtrt_soundcloud_albums_data = $wpdtrt_soundcloud_albums_options['wpdtrt_soundcloud_albums_data'];
 
       /**
        * Get the unique ID
@@ -67,7 +67,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-      require(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'views/public/partials/wpdtrt-soundcloud-pages-front-end.php');
+      require(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'views/public/partials/wpdtrt-soundcloud-albums-front-end.php');
     }
 
     /**
@@ -104,20 +104,20 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Pages_Widget' ) ) {
       $number = esc_attr( $instance['number'] );
       $enlargement = esc_attr( $instance['enlargement'] );
 
-      $wpdtrt_soundcloud_pages_options = get_option('wpdtrt_soundcloud_pages');
-      $wpdtrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
+      $wpdtrt_soundcloud_albums_options = get_option('wpdtrt_soundcloud_albums');
+      $wpdtrt_soundcloud_albums_data = $wpdtrt_soundcloud_albums_options['wpdtrt_soundcloud_albums_data'];
 
     /**
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-      require(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'views/admin/partials/wpdtrt-soundcloud-pages-widget.php');
+      require(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'views/admin/partials/wpdtrt-soundcloud-albums-widget.php');
     }
   }
 
 }
 
-if ( !function_exists( 'wpdtrt_soundcloud_pages_register_widgets' ) ) {
+if ( !function_exists( 'wpdtrt_soundcloud_albums_register_widgets' ) ) {
 
   /**
    * Register the widget
@@ -127,12 +127,12 @@ if ( !function_exists( 'wpdtrt_soundcloud_pages_register_widgets' ) ) {
    * @see         https://codex.wordpress.org/Function_Reference/register_widget#Example
    */
 
-  function wpdtrt_soundcloud_pages_register_widgets() {
-    register_widget( 'WpDTRT_SoundCloud_Pages_Widget' );
+  function wpdtrt_soundcloud_albums_register_widgets() {
+    register_widget( 'WpDTRT_SoundCloud_Albums_Widget' );
   }
 
   // DISABLED
-  //add_action( 'widgets_init', 'wpdtrt_soundcloud_pages_register_widgets' );
+  //add_action( 'widgets_init', 'wpdtrt_soundcloud_albums_register_widgets' );
 
 }
 

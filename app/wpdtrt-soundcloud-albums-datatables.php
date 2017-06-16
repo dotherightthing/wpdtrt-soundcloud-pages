@@ -7,8 +7,8 @@
    * @link        http://www.panoramica.co.nz
    * @since       0.4.0
    *
-   * @package     WpDTRT_SoundCloud_Pages
-   * @subpackage  WpDTRT_SoundCloud_Pages/app
+   * @package     WpDTRT_SoundCloud_Albums
+   * @subpackage  WpDTRT_SoundCloud_Albums/app
    * @see         https://www.sitepoint.com/using-wp_list_table-to-create-wordpress-admin-tables/
    */
 
@@ -16,7 +16,7 @@
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
   }
 
-  class WpDTRT_SoundCloud_Pages_List_Table extends WP_List_Table {
+  class WpDTRT_SoundCloud_Albums_List_Table extends WP_List_Table {
 
     /**
      * Class constructor
@@ -44,19 +44,19 @@
      */
     public function get_albums( $per_page = 5, $page_number = 1 ) {
 
-      global $wpdtrt_soundcloud_pages_options;
+      global $wpdtrt_soundcloud_albums_options;
 
-      $wpdtrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
+      $wpdtrt_soundcloud_albums_data = $wpdtrt_soundcloud_albums_options['wpdtrt_soundcloud_albums_data'];
 
-      $wpdtrt_soundcloud_pages_data_array_a = array();
+      $wpdtrt_soundcloud_albums_data_array_a = array();
 
-      foreach( $wpdtrt_soundcloud_pages_data as $key => $val ) {
+      foreach( $wpdtrt_soundcloud_albums_data as $key => $val ) {
 
-        $playlist_type = $wpdtrt_soundcloud_pages_data[$key]->{'playlist_type'};
-        $permalink_url = $wpdtrt_soundcloud_pages_data[$key]->{'permalink_url'};
-        $title = $wpdtrt_soundcloud_pages_data[$key]->{'title'};
-        $username = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_username'];
-        $release_date = wpdtrt_soundcloud_pages_post_date($key, '.');
+        $playlist_type = $wpdtrt_soundcloud_albums_data[$key]->{'playlist_type'};
+        $permalink_url = $wpdtrt_soundcloud_albums_data[$key]->{'permalink_url'};
+        $title = $wpdtrt_soundcloud_albums_data[$key]->{'title'};
+        $username = $wpdtrt_soundcloud_albums_options['wpdtrt_soundcloud_albums_username'];
+        $release_date = wpdtrt_soundcloud_albums_post_date($key, '.');
 
         $id = str_replace('http://soundcloud.com/' . $username . '/sets/', '', $permalink_url);
 
@@ -67,7 +67,7 @@
            *  as that is what WP expects from an SQL query, when ARRAY_A is specified
            * @example $wpdb->get_results( $sql, 'ARRAY_A' );
            */
-          $wpdtrt_soundcloud_pages_data_array_a[] = array(
+          $wpdtrt_soundcloud_albums_data_array_a[] = array(
             'title' => $title,
             'type' => ucfirst($playlist_type),
             'release_date' => $release_date,
@@ -89,7 +89,7 @@
        *  as a SQL query would also be sorted
        * @uses http://stackoverflow.com/a/22610655
        */
-      usort($wpdtrt_soundcloud_pages_data_array_a, function($a, $b) use ($orderby, $order) {
+      usort($wpdtrt_soundcloud_albums_data_array_a, function($a, $b) use ($orderby, $order) {
         // $orderby and $order are available in this scope (PHP 5.3+)
         if ( $order === 'asc' ) {
           return strcmp( $a[ $orderby ], $b[ $orderby ] );
@@ -100,7 +100,7 @@
 
       });
 
-      return $wpdtrt_soundcloud_pages_data_array_a;
+      return $wpdtrt_soundcloud_albums_data_array_a;
     }
 
 
@@ -112,11 +112,11 @@
      */
     public static function album_count() {
 
-      global $wpdtrt_soundcloud_pages_options;
+      global $wpdtrt_soundcloud_albums_options;
 
-      $wpdtrt_soundcloud_pages_data = $wpdtrt_soundcloud_pages_options['wpdtrt_soundcloud_pages_data'];
+      $wpdtrt_soundcloud_albums_data = $wpdtrt_soundcloud_albums_options['wpdtrt_soundcloud_albums_data'];
 
-      return count( $wpdtrt_soundcloud_pages_data );
+      return count( $wpdtrt_soundcloud_albums_data );
     }
 
 
@@ -192,9 +192,9 @@
     public function get_columns() {
       $columns = array(
         'cb'            => '<input type="checkbox" />',
-        'title'         => __( 'Title', 'wpdtrt_soundcloud_pages' ),
-        'type'          => __( 'Type', 'wpdtrt_soundcloud_pages' ),
-        'release_date'  => __( 'Release date', 'wpdtrt_soundcloud_pages' ),
+        'title'         => __( 'Title', 'wpdtrt_soundcloud_albums' ),
+        'type'          => __( 'Type', 'wpdtrt_soundcloud_albums' ),
+        'release_date'  => __( 'Release date', 'wpdtrt_soundcloud_albums' ),
       );
 
       return $columns;

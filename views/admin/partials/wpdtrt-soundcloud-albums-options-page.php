@@ -1,7 +1,7 @@
 <?php
 /**
  * Template partial for Admin Options page
- *    WP Admin > Settings > WP SoundCloud Pages
+ *    WP Admin > Settings > WP SoundCloud Albums
  *
  * This file contains PHP, and HTML from the WordPress_Admin_Style plugin.
  *
@@ -9,15 +9,15 @@
  * @link        /wp-admin/admin.php?page=WordPress_Admin_Style#twocolumnlayout2
  * @since       0.1.0
  *
- * @package     WpDTRT_SoundCloud_Pages
- * @subpackage  WpDTRT_SoundCloud_Pages/views
+ * @package     WpDTRT_SoundCloud_Albums
+ * @subpackage  WpDTRT_SoundCloud_Albums/views
  */
 ?>
 
 <div class="wrap">
 
   <div id="icon-options-general" class="icon32"></div>
-  <h1><?php esc_attr_e( 'WP SoundCloud Pages', 'wp_admin_style' ); ?></h1>
+  <h1><?php esc_attr_e( 'WP SoundCloud Albums', 'wp_admin_style' ); ?></h1>
 
   <div id="poststuff">
 
@@ -26,17 +26,17 @@
       <!-- main content -->
       <div id="post-body-content">
 
-        <div class="meta-box-sortables ui-sortable">
+        <div class="meta-box-sortables ui-sortable" id="accordion">
 
           <?php
           /**
            * Start Scenario 1 - data selection form
            * If the user has not chosen a content type yet.
-           * then $wpdtrt_soundcloud_pages_username will be set to the default of ""
+           * then $wpdtrt_soundcloud_albums_username will be set to the default of ""
            * The user must make a selection so that we know which page to query,
            * so we show the selection box first.
            */
-          if ( !isset( $wpdtrt_soundcloud_pages_username ) || ( $wpdtrt_soundcloud_pages_username === '') ) :
+          if ( !isset( $wpdtrt_soundcloud_albums_username ) || ( $wpdtrt_soundcloud_albums_username === '') ) :
           ?>
 
           <div class="postbox">
@@ -48,31 +48,31 @@
 
             <div class="inside">
 
-              <form name="wpdtrt_soundcloud_pages_data_form" method="post" action="">
+              <form name="wpdtrt_soundcloud_albums_data_form" method="post" action="">
 
-                <input type="hidden" name="wpdtrt_soundcloud_pages_form_submitted" value="Y" />
+                <input type="hidden" name="wpdtrt_soundcloud_albums_form_submitted" value="Y" />
 
                 <table class="form-table">
                   <tr>
                     <th>
-                      <label for="wpdtrt_soundcloud_pages_username">
+                      <label for="wpdtrt_soundcloud_albums_username">
                         Please enter your SoundCloud username:
                          <span class="tip">(https://soundcloud.com/username)</span>
                       </label>
                     </th>
                     <td>
-                      <input type="text" name="wpdtrt_soundcloud_pages_username" id="wpdtrt_soundcloud_pages_username" value="">
+                      <input type="text" name="wpdtrt_soundcloud_albums_username" id="wpdtrt_soundcloud_albums_username" value="">
                     </td>
                   </tr>
                   <tr>
                     <th>
-                      <label for="wpdtrt_soundcloud_pages_clientid">
+                      <label for="wpdtrt_soundcloud_albums_clientid">
                         Please enter your SoundCloud Client ID:
                          <span class="tip">(http://soundcloud.com/you/apps/new)</span>
                       </label>
                     </th>
                     <td>
-                      <input type="password" name="wpdtrt_soundcloud_pages_clientid" id="wpdtrt_soundcloud_pages_clientid" value="">
+                      <input type="password" name="wpdtrt_soundcloud_albums_clientid" id="wpdtrt_soundcloud_albums_clientid" value="">
                     </td>
                   </tr>
                 </table>
@@ -84,7 +84,7 @@
                   submit_button(
                     $text = 'Submit',
                     $type = 'primary',
-                    $name = 'wpdtrt_soundcloud_pages_submit',
+                    $name = 'wpdtrt_soundcloud_albums_submit',
                     $wrap = true,
                     $other_attributes = null
                   );
@@ -107,7 +107,7 @@
           /**
            * Start Scenario 2 - data selected
            * If the user has already chosen a content type,
-           * then $wpdtrt_soundcloud_pages_data will contain the body of the resulting JSON.
+           * then $wpdtrt_soundcloud_albums_data will contain the body of the resulting JSON.
            */
 
           ?>
@@ -121,30 +121,30 @@
 
             <div class="inside">
 
-              <form name="wpdtrt_soundcloud_pages_data_form" method="post" action="">
+              <form name="wpdtrt_soundcloud_albums_data_form" method="post" action="">
 
-                <input type="hidden" name="wpdtrt_soundcloud_pages_form_submitted" value="Y" />
-
-                <p>
-                  <label for="wpdtrt_soundcloud_pages_username">New user ID:</label>
-                </p>
-                <p>
-                  <input type="text" name="wpdtrt_soundcloud_pages_username" id="wpdtrt_soundcloud_pages_username" value="<?php echo $wpdtrt_soundcloud_pages_username; ?>">
-                </p>
-                <p>
+                <input type="hidden" name="wpdtrt_soundcloud_albums_form_submitted" value="Y" />
 
                 <p>
-                  <label for="wpdtrt_soundcloud_pages_clientid">New SoundCloud Client ID:</label>
+                  <label for="wpdtrt_soundcloud_albums_username">New user ID:</label>
                 </p>
                 <p>
-                  <input type="password" name="wpdtrt_soundcloud_pages_clientid" id="wpdtrt_soundcloud_pages_clientid" value="<?php echo $wpdtrt_soundcloud_pages_clientid; ?>">
+                  <input type="text" name="wpdtrt_soundcloud_albums_username" id="wpdtrt_soundcloud_albums_username" value="<?php echo $wpdtrt_soundcloud_albums_username; ?>">
+                </p>
+                <p>
+
+                <p>
+                  <label for="wpdtrt_soundcloud_albums_clientid">New SoundCloud Client ID:</label>
+                </p>
+                <p>
+                  <input type="password" name="wpdtrt_soundcloud_albums_clientid" id="wpdtrt_soundcloud_albums_clientid" value="<?php echo $wpdtrt_soundcloud_albums_clientid; ?>">
                 </p>
                 <p>
                   <?php
                     submit_button(
                       $text = 'Save &amp; load new data',
                       $type = 'primary',
-                      $name = 'wpdtrt_soundcloud_pages_submit',
+                      $name = 'wpdtrt_soundcloud_albums_submit',
                       $wrap = false, // don't wrap in paragraph
                       $other_attributes = null
                     );
@@ -158,7 +158,7 @@
           </div>
           <!-- .postbox -->
 
-          <div class="postbox" id="wpdtrt-soundcloud-pages-data-table">
+          <div class="postbox" id="wpdtrt-soundcloud-albums-data-table">
 
             <h2>
               <span class="step">2.</span>
@@ -167,22 +167,22 @@
 
             <div class="inside">
 
-              <p>Your SoundCloud account contains <?php echo count( $wpdtrt_soundcloud_pages_data ); ?> albums:</p>
+              <p>Your SoundCloud account contains <?php echo count( $wpdtrt_soundcloud_albums_data ); ?> albums:</p>
 
-              <div class="wpdtrt-soundcloud-pages-blocks">
+              <div class="wpdtrt-soundcloud-albums-blocks">
 
-                <form id="wpdtrt-soundcloud-pages-albums-table" method="GET">
-                  <input type="hidden" name="wpdtrt_soundcloud_pages_regenerate" value="Y" />
+                <form id="wpdtrt-soundcloud-albums-albums-table" method="GET">
+                  <input type="hidden" name="wpdtrt_soundcloud_albums_regenerate" value="Y" />
                   <input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>"/>
                   <?php
-                      $wpdtrt_soundcloud_pages_albums_table->display();
+                      $wpdtrt_soundcloud_albums_albums_table->display();
                    ?>
                   <p>
                     <?php
                       submit_button(
                         $text = 'Generate pages',
                         $type = 'primary',
-                        $name = 'wpdtrt_soundcloud_pages_regenerate_submit',
+                        $name = 'wpdtrt_soundcloud_albums_regenerate_submit',
                         $wrap = false, // don't wrap in paragraph
                         $other_attributes = null
                       );
@@ -193,7 +193,7 @@
               </div>
 
               <?php
-                echo wpdtrt_soundcloud_pages_html_date();
+                echo wpdtrt_soundcloud_albums_html_date();
               ?>
 
             </div>
@@ -227,14 +227,14 @@
 
               <p>Samples of the playlist data types:</p>
 
-              <div class="wpdtrt-soundcloud-pages-data">
+              <div class="wpdtrt-soundcloud-albums-data">
                 <?php
 
                   $demo_types = array('album', 'compilation', 'ep', 'single');
 
-                  foreach( $wpdtrt_soundcloud_pages_data as $key => $val ) {
+                  foreach( $wpdtrt_soundcloud_albums_data as $key => $val ) {
 
-                    $playlist_type = $wpdtrt_soundcloud_pages_data[$key]->{'playlist_type'};
+                    $playlist_type = $wpdtrt_soundcloud_albums_data[$key]->{'playlist_type'};
 
                     if ( in_array( $playlist_type, $demo_types ) ) {
                       echo "<h3>" . $playlist_type . "</h3>";

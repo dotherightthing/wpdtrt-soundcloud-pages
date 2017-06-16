@@ -2,13 +2,13 @@
  * Scripts for the public front-end
  *
  * This file contains JavaScript.
- *    PHP variables are provided in wpdtrt_soundcloud_pages_config.
+ *    PHP variables are provided in wpdtrt_soundcloud_albums_config.
  *
  * @link        http://www.panoramica.co.nz
  * @since       0.1.0
  *
- * @package     WpDTRT_SoundCloud_Pages
- * @subpackage  WpDTRT_SoundCloud_Pages/views
+ * @package     WpDTRT_SoundCloud_Albums
+ * @subpackage  WpDTRT_SoundCloud_Albums/views
  */
 
 jQuery(document).ready(function($){
@@ -29,13 +29,13 @@ jQuery(document).ready(function($){
     $('#soundcloud-player').append(sc_widget);
 
     // the widget iframe loads with the same URL as the one that will be loaded via SC.Widget
-    $('#sc-widget').attr('src', 'https://w.soundcloud.com/player/?url=' + wpdtrt_soundcloud_pages_config.soundcloud_permalink_url);
+    $('#sc-widget').attr('src', 'https://w.soundcloud.com/player/?url=' + wpdtrt_soundcloud_albums_config.soundcloud_permalink_url);
 
     var widgetIframe = document.getElementById('sc-widget'),
         widget       = SC.Widget(widgetIframe);
 
         widget.bind(SC.Widget.Events.READY, function() {
-          widget.load( wpdtrt_soundcloud_pages_config.soundcloud_permalink_url, {
+          widget.load( wpdtrt_soundcloud_albums_config.soundcloud_permalink_url, {
             show_artwork: false,
             show_comments: false,
             auto_play: true,

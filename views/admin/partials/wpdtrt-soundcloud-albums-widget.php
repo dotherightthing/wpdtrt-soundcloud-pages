@@ -1,15 +1,15 @@
 <?php
 /**
  * Template partial for Widget administration
- *    WP Admin > Appearance > Widgets > WP SoundCloud Pages
+ *    WP Admin > Appearance > Widgets > WP SoundCloud Albums
  *
  * This file contains PHP, and HTML fields.
  *
  * @link        http://www.panoramica.co.nz
  * @since       0.1.0
  *
- * @package     WpDTRT_SoundCloud_Pages
- * @subpackage  WpDTRT_SoundCloud_Pages/views
+ * @package     WpDTRT_SoundCloud_Albums
+ * @subpackage  WpDTRT_SoundCloud_Albums/views
  */
 ?>
 
@@ -21,7 +21,7 @@
 <p>
   <label for="<?php echo $this->get_field_name('number'); ?>">Number of blocks to display</label>
   <input size="4" id="<?php echo $this->get_field_name('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="number" value="<?php echo $number; ?>" aria-describedby="<?php echo $this->get_field_name('number'); ?>-tip" />
-  <span id="<?php echo $this->get_field_name('number'); ?>-tip" class="wpdtrt-soundcloud-pages-tip">Minimum: 1 | Maximum: <?php echo count($wpdtrt_soundcloud_pages_data); ?></span>
+  <span id="<?php echo $this->get_field_name('number'); ?>-tip" class="wpdtrt-soundcloud-albums-tip">Minimum: 1 | Maximum: <?php echo count($wpdtrt_soundcloud_albums_data); ?></span>
 </p>
 
 <?php

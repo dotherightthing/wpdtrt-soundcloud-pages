@@ -7,8 +7,8 @@
  * @link        http://www.panoramica.co.nz
  * @since       0.1.0
  *
- * @package     WpDTRT_SoundCloud_Pages
- * @subpackage  WpDTRT_SoundCloud_Pages/views
+ * @package     WpDTRT_SoundCloud_Albums
+ * @subpackage  WpDTRT_SoundCloud_Albums/views
  */
 ?>
 
@@ -18,7 +18,7 @@
   echo $before_title . $title . $after_title;
 ?>
 
-<div class="wpdtrt-soundcloud-pages-blocks frontend" data-number="<?php echo $number; ?>">
+<div class="wpdtrt-soundcloud-albums-blocks frontend" data-number="<?php echo $number; ?>">
   <ul>
 
   <?php
@@ -38,11 +38,11 @@
      */
     $has_enlargement = filter_var( $enlargement, FILTER_VALIDATE_BOOLEAN );
 
-    foreach( $wpdtrt_soundcloud_pages_data as $key => $val ) {
+    foreach( $wpdtrt_soundcloud_albums_data as $key => $val ) {
 
       echo "<li>";
 
-      //echo wpdtrt_soundcloud_pages_html_image( $key, $has_enlargement );
+      //echo wpdtrt_soundcloud_albums_html_image( $key, $has_enlargement );
 
       echo "</li>\r\n";
 

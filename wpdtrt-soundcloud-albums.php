@@ -1,26 +1,26 @@
 <?php
 /*
-Plugin Name:  WP SoundCloud Pages
+Plugin Name:  WP SoundCloud Albums
 Plugin URI:   http://www.panoramica.co.nz
-Description:  Generate WordPress pages from SoundCloud playlists
+Description:  Generate WordPress posts from SoundCloud albums
 Version:      0.3.0
 Author:       Dan Smith
 Author URI:   http://dotherightthing.co.nz
 License:      GPLv2 or later
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain:  wpdtrt-soundcloud-pages
+Text Domain:  wpdtrt-soundcloud-albums
 Domain Path:  /languages
 */
 
 /**
- * Generate WordPress pages from SoundCloud playlists
+ * Generate WordPress posts from SoundCloud albums
  *
  * This file contains PHP.
  *
  * @link        http://www.panoramica.co.nz
  * @since       0.1.0
  *
- * @package     WpDTRT_SoundCloud_Pages
+ * @package     WpDTRT_SoundCloud_Albums
  */
 
 /**
@@ -51,8 +51,8 @@ Domain Path:  /languages
  * @example $plugin_data = get_plugin_data( __FILE__ ); $plugin_version = $plugin_data['Version'];
  * @link https://wordpress.stackexchange.com/questions/18268/i-want-to-get-a-plugin-version-number-dynamically
  */
-if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_VERSION' ) ) {
-  define( 'WPDTRT_SOUNDCLOUD_PAGES_VERSION', '0.1' );
+if( ! defined( 'WPDTRT_SOUNDCLOUD_ALBUMS_VERSION' ) ) {
+  define( 'WPDTRT_SOUNDCLOUD_ALBUMS_VERSION', '0.1' );
 }
 
 /**
@@ -62,8 +62,8 @@ if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_VERSION' ) ) {
  * @link https://developer.wordpress.org/reference/functions/plugin_dir_path/
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  */
-if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_PATH' ) ) {
-  define( 'WPDTRT_SOUNDCLOUD_PAGES_PATH', plugin_dir_path( __FILE__ ) );
+if( ! defined( 'WPDTRT_SOUNDCLOUD_ALBUMS_PATH' ) ) {
+  define( 'WPDTRT_SOUNDCLOUD_ALBUMS_PATH', plugin_dir_path( __FILE__ ) );
 }
 
 /**
@@ -73,8 +73,8 @@ if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_PATH' ) ) {
  * @link https://codex.wordpress.org/Function_Reference/plugin_dir_url
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  */
-if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_URL' ) ) {
-  define( 'WPDTRT_SOUNDCLOUD_PAGES_URL', plugin_dir_url( __FILE__ ) );
+if( ! defined( 'WPDTRT_SOUNDCLOUD_ALBUMS_URL' ) ) {
+  define( 'WPDTRT_SOUNDCLOUD_ALBUMS_URL', plugin_dir_url( __FILE__ ) );
 }
 
 
@@ -84,34 +84,34 @@ if( ! defined( 'WPDTRT_SOUNDCLOUD_PAGES_URL' ) ) {
  * WordPress automatically serializes this (into a string)
  * because MySQL does not support arrays as a data type
  */
-  $wpdtrt_soundcloud_pages_options = array();
+  $wpdtrt_soundcloud_albums_options = array();
 
 /**
  * Include plugin logic
  */
 
   // API data
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-api.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-api.php');
 
   // Data Tables
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-datatables.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-datatables.php');
 
 
   // Views
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-options-page.php');
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-widget.php');
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-post-types.php');
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-taxonomies.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-options-page.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-widget.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-post-types.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-taxonomies.php');
 
   // Theming
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-html.php');
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-css.php');
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-js.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-html.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-css.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-js.php');
 
   // Content
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-posts.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-posts.php');
 
   // Shortcode
-  require_once(WPDTRT_SOUNDCLOUD_PAGES_PATH . 'app/wpdtrt-soundcloud-pages-shortcode.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-shortcode.php');
 
 ?>
