@@ -6,3 +6,4 @@ tests
 vendor
 composer.phar
 dev
+.DS_Store
