@@ -76,6 +76,10 @@ if ( !function_exists( 'wpdtrt_soundcloud_albums_get_data' ) ) {
 
     $endpoint = 'https://api.soundcloud.com/users/' . $wpdtrt_soundcloud_albums_userid . '/playlists?client_id=' . $wpdtrt_soundcloud_albums_clientid;
 
+    $args = array(
+      'timeout' => 30 // seconds to wait for the request to complete
+    );
+
     $response = wp_remote_get(
       $endpoint,
       $args
