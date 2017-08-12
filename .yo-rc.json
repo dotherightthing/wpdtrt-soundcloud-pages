@@ -1,6 +1,6 @@
 {
   "generator-wp-plugin-boilerplate": {
-    "nameFriendly": "WP SoundCloud Albums",
+    "nameFriendly": "DTRT SoundCloud Albums",
     "nameAdminMenu": "SoundCloud Albums",
     "urlAdminMenu": "soundcloud-albums",
     "description": "Generate WordPress posts from SoundCloud albums",

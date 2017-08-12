@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name:  WP SoundCloud Albums
-Plugin URI:   http://www.panoramica.co.nz
+Plugin Name:  DTRT SoundCloud Albums
+Plugin URI:   https://github.com/dotherightthing/wpdtrt-soundcloud-pages
 Description:  Generate WordPress posts from SoundCloud albums
-Version:      0.3.0
+Version:      0.1.0
 Author:       Dan Smith
 Author URI:   http://dotherightthing.co.nz
 License:      GPLv2 or later
@@ -98,7 +98,7 @@ if( ! defined( 'WPDTRT_SOUNDCLOUD_ALBUMS_URL' ) ) {
 
 
   // Views
-  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-options-page.php');
+  require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-options.php');
   require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-widget.php');
   require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-post-types.php');
   require_once(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'app/wpdtrt-soundcloud-albums-taxonomies.php');

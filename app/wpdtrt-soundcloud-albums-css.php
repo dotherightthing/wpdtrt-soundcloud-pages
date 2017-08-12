@@ -21,7 +21,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_albums_css_backend' ) ) {
   function wpdtrt_soundcloud_albums_css_backend() {
 
     wp_enqueue_style( 'wpdtrt_soundcloud_albums_css_backend',
-      WPDTRT_SOUNDCLOUD_ALBUMS_URL . 'views/admin/css/wpdtrt-soundcloud-albums.css',
+      WPDTRT_SOUNDCLOUD_ALBUMS_URL . 'css/wpdtrt-soundcloud-albums-admin.css',
       array(),
       WPDTRT_SOUNDCLOUD_ALBUMS_VERSION
       //'all'
@@ -42,7 +42,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_albums_css_frontend' ) ) {
   function wpdtrt_soundcloud_albums_css_frontend() {
 
     wp_enqueue_style( 'wpdtrt_soundcloud_albums_css_frontend',
-      WPDTRT_SOUNDCLOUD_ALBUMS_URL . 'views/public/css/wpdtrt-soundcloud-albums.css',
+      WPDTRT_SOUNDCLOUD_ALBUMS_URL . 'css/wpdtrt-soundcloud-albums.css',
       array(),
       WPDTRT_SOUNDCLOUD_ALBUMS_VERSION
       //'all'

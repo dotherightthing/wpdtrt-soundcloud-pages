@@ -1,0 +1,31 @@
+/**
+ * Styles for the WP Admin plugin options page
+ *
+ * This file contains CSS.
+ *
+ * @link        http://www.panoramica.co.nz
+ * @since       0.1.0
+ *
+ * @package     WpDTRT_SoundCloud_Albums
+ * @subpackage  WpDTRT_SoundCloud_Albums/views
+ */
+
+.wpdtrt-soundcloud-albums-data pre {
+  overflow: auto;
+  height: 25em;
+}
+
+.wpdtrt-soundcloud-albums-data code {
+  background-color: transparent;
+  font-size: .9em;
+}
+
+.wpdtrt-soundcloud-albums-date {
+  font-size: .95em;
+}
+
+.widget .wpdtrt-soundcloud-albums-tip {
+  display: block;
+  padding-top: 4px;
+}
+

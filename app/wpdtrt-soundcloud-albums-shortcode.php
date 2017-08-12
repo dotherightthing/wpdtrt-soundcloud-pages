@@ -68,7 +68,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_albums_blocks_shortcode' ) ) {
      */
     ob_start();
 
-    require(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'views/public/partials/wpdtrt-soundcloud-albums-front-end.php');
+    require(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'templates/wpdtrt-soundcloud-albums-front-end.php');
 
     /**
      * ob_get_clean — Get current buffer contents and delete current output buffer

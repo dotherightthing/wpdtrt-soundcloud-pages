@@ -1,6 +1,6 @@
 {
   "name": "wpdtrt-soundcloud-albums",
-  "version": "0.3.0",
+  "version": "0.1.0",
   "description": "Generate WordPress posts from SoundCloud playlists",
   "main": "readme.txt",
   "person": {

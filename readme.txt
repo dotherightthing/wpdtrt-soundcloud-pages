@@ -1,5 +1,5 @@
 
-=== WP SoundCloud Albums ===
+=== DTRT SoundCloud Albums ===
 Contributors: dotherightthingnz
 Donate link: http://dotherightthing.co.nz/donate
 Tags: SoundCloud, music, theming, import

@@ -166,7 +166,7 @@ if ( !function_exists('wpdtrt_soundcloud_albums_post_type_template') ) {
         global $wp_query, $post;
 
         if ( $post->post_type == 'soundcloud_albums' ) {
-            $single_template = WPDTRT_SOUNDCLOUD_ALBUMS_PATH . '/views/public/templates/wpdtrt-soundcloud-albums-single.php';
+            $single_template = WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'templates/wpdtrt-soundcloud-albums-single.php';
         }
 
         return $single_template;

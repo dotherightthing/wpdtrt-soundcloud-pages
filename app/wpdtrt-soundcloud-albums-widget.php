@@ -27,7 +27,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Albums_Widget' ) ) {
 
     function __construct() {
       // Instantiate the parent object
-      parent::__construct( false, 'WP SoundCloud Albums Widget' );
+      parent::__construct( false, 'DTRT SoundCloud Albums Widget' );
     }
 
     /**
@@ -67,7 +67,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Albums_Widget' ) ) {
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-      require(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'views/public/partials/wpdtrt-soundcloud-albums-front-end.php');
+      require(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'templates/wpdtrt-soundcloud-albums-front-end.php');
     }
 
     /**
@@ -111,7 +111,7 @@ if ( !class_exists( 'WpDTRT_SoundCloud_Albums_Widget' ) ) {
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-      require(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'views/admin/partials/wpdtrt-soundcloud-albums-widget.php');
+      require(WPDTRT_SOUNDCLOUD_ALBUMS_PATH . 'templates/wpdtrt-soundcloud-albums-widget.php');
     }
   }
 

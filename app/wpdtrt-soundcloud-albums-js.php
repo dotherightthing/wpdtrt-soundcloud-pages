@@ -33,7 +33,7 @@ if ( !function_exists( 'wpdtrt_soundcloud_albums_frontend_js' ) ) {
     );
 
     wp_enqueue_script( 'wpdtrt_soundcloud_albums_frontend_js',
-      WPDTRT_SOUNDCLOUD_ALBUMS_URL . 'views/public/js/wpdtrt-soundcloud-albums.js',
+      WPDTRT_SOUNDCLOUD_ALBUMS_URL . 'js/wpdtrt-soundcloud-albums.js',
       array('jquery'),
       WPDTRT_SOUNDCLOUD_ALBUMS_VERSION,
       true
